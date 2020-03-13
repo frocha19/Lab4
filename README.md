@@ -1,4 +1,4 @@
-## Trabajo Practico N° 1 – Laboratorio de Computación 4
+## Trabajo Practico N° 1 – Laboratorio de Computación 4.
     # 1
     Cree las siguientes tablas de base de datos con los siguientes campos:
     * Tabla:
@@ -24,9 +24,9 @@
     Contenido HTML cadena (20480)
     Publicada carácter (1) / char (Y/N)
     Fecha Publicación fecha
-    idEmpresa entero/ Clave Foránea
+    idEmpresa entero/ Clave Foránea.
     
-    # 2
+    #2
     Codifique las siguientes funcionalidades mediante el lenguaje de programación seleccionado:
 * Administrar Empresa: Alta, baja, modificación y consulta de los datos indicados en la tabla empresa.
 * Administrar Noticia: Alta, baja, modificación y consulta de los datos indicados en la tabla noticia, el modulo deberá contener la posibilidad de ejecutar un “UPLOAD” de una imagen seleccionada en el cliente. Además deberá hacer uso del editor de texto enriquecido tinymce para asignar el valor del campo Contenido HTML.
