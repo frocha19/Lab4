@@ -1,0 +1,21 @@
+<br>
+<div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Empresa</th>
+            <th scope="col">Ver Página</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let i of empresas">
+            <th scope="row">{{i.id}}</th>
+            <td>{{i.denominacion}}</td>
+            <td>
+                <a href="#" onclick="getOne()">Home de la empresa</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>    
+</div>
