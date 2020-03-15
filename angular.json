@@ -126,5 +126,8 @@
       }
     }
   },
-  "defaultProject": "FrontEndNivelator"
+  "defaultProject": "FrontEndNivelator",
+  "cli": {
+    "analytics": false
+  }
 }
