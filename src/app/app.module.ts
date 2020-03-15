@@ -11,6 +11,8 @@ import { Page404Component } from './componentes/page404/page404.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { TablaempresaComponent } from './componentes/tablaempresa/tablaempresa.component';
 import { ModalempresaComponent } from './componentes/modalempresa/modalempresa.component';
+import { NavbarComponent } from './componentes/navbar/navbar.component';
+import { DetalleComponent } from './componentes/detalle/detalle.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { ModalempresaComponent } from './componentes/modalempresa/modalempresa.c
     Page404Component,
     HomeComponent,
     TablaempresaComponent,
-    ModalempresaComponent
+    ModalempresaComponent,
+    NavbarComponent,
+    DetalleComponent
   ],
   imports: [
     BrowserModule,
