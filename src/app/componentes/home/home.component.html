@@ -1,1 +1,50 @@
 <br>
+<div class="container-fluid">
+    <h1 class="txt-pr">
+        Quienes Somos
+    </h1>
+    <div class="row">
+        <div class="col">
+            <p style="text-align:justify">
+                {{this.empresa.denominacion}}
+            </p>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <h2 class="txt-pr">
+        Donde estamos
+    </h2>
+</div>
+<div class="map">
+    <div id="google-map" class="map_model" data-zoom="11"></div>
+    <ul class="map_locations">
+        <li data-x="-73.9874068" data-y="40.643180" data-basic="images/gmap_marker.png" data-active="images/gmap_marker_active.png">
+            <div class="location">
+                <h3 class="txt-clr1" style="color:black">
+                    <small>{{this.empresa.denominacion}}</small>
+                </h3>
+                <address>
+                        <dl>
+                            <dt>Telefono: </dt>
+                            <dd class="phone" style="color:black"><a href="callto:#">{{this.empresa.telefono}}</a></dd>
+                        </dl>
+                        <dl>
+                            <dt>Domicilio: </dt>
+                            <dd style="color:black">{{this.empresa.domicilio}}</dd>
+                        </dl>
+                        <dl>
+                            <dt> E-mail: </dt>
+                            <dd style="color:black"><a href="mailto:#">{{this.empresa.email}}</a></dd>
+                        </dl>
+                    </address>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="container">
+    <p class="rights">
+        {{this.empresa.denominacion}} &#169; <span id="copyright-year"></span>
+        <a href="">Privacy Policy</a>
+    </p>
+</div>
