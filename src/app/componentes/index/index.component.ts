@@ -10,13 +10,24 @@ import { Router } from '@angular/router';
 })
 export class IndexComponent implements OnInit {
 
-  public empresas: Empresa[];
+  // public empresas: [];
+  public empresas: [
+    {
+      id: 0,
+      denominacion: 'Pagina1'},
+    {
+      id: 1,
+      denominacion: 'Pagina2'},
+    {
+      id: 2,
+      denominacion: 'Pagina3'}
+  ];
   public empresa: Empresa;
 
   public empresaSeleccionada: Empresa = {
     id: 0,
     denominacion: ''
-  }
+  };
 
   constructor(private empresaService: EmpresaService, private router: Router) { }
 
@@ -25,20 +36,20 @@ export class IndexComponent implements OnInit {
 
   getAllEmpresas() {
     this.empresaService.getAll().subscribe( res => {
-      this.empresas = res;
-    }, 
+      // this.empresas = res;
+    },
     err => {
-      alert ('Error al traer todas las empresas: '+ err);
+      alert ('Error al traer todas las empresas: ' + err);
     });
   }
 
-  getOne(id: number){
+  getOne(id: number) {
     this.empresaService.getOne(id).subscribe( res => {
       this.empresa = res;
-      this.router.navigate[("/home/"+id)];
+      this.router.navigate[('/home/' + id)];
     },
     err => {
-      alert ('Error al traer todas las empresas: '+ err);
+      alert ('Error al traer todas las empresas: ' + err);
     });
   }
 

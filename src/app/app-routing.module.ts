@@ -8,7 +8,7 @@ import { DetalleComponent } from './componentes/detalle/detalle.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
-  { path: 'home', component: HomeComponent},
+  { path: 'home/:id', component: HomeComponent},
   { path: 'detalle/:id', component: DetalleComponent},
   { path: 'tabla/empresa', component: TablaempresaComponent},
   { path: '**', component: Page404Component}
