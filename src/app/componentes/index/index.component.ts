@@ -10,18 +10,7 @@ import { Router } from '@angular/router';
 })
 export class IndexComponent implements OnInit {
 
-  // public empresas: [];
-  public empresas: [
-    {
-      id: 0,
-      denominacion: 'Pagina1'},
-    {
-      id: 1,
-      denominacion: 'Pagina2'},
-    {
-      id: 2,
-      denominacion: 'Pagina3'}
-  ];
+  public empresas: Empresa [];
   public empresa: Empresa;
 
   public empresaSeleccionada: Empresa = {
