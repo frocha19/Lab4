@@ -1,4 +1,4 @@
-<nav class="navbar" style="background-color: #00D7B0;">
+<nav class="navbar" style="background-color: #00D7B0;" *ngIf="direction(); else nothing">
     <div class="container">
         <div class="navbar-header">
             <h1 class="navbar-brand">
@@ -17,3 +17,4 @@
         </div>
     </div>
 </nav>
+<div #nothing></div>
