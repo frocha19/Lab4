@@ -1,11 +1,11 @@
 export class Empresa {
     id?: number;
-    denominacion?: string;
-    telefono?: number;
-    horarioDeAtencion?: string;
-    quienesSomos?: string;
-    latitud?: number;
-    longitud?: number;
-    domicilio?: string;
-    email?: string;
+    denominacion: string;
+    telefono: string;
+    horario_de_atencion: string;
+    quienes_somos: string;
+    latitud: number;
+    longitud: number;
+    domicilio: string;
+    email: string;
 }

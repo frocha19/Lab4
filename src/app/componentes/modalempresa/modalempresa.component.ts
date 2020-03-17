@@ -32,7 +32,8 @@ export class ModalempresaComponent implements OnInit {
         id: valor.id,
         denominacion: valor.denominacion,
         telefono: valor.telefono,
-        horarioDeAtencion: valor.horarioDeAtencion,
+        horario_de_atencion: valor.horario_de_atencion,
+        quienes_somos: valor.quienes_somos,
         latitud: valor.latitud,
         longitud: valor.longitud,
         domicilio: valor.domicilio,
@@ -54,9 +55,9 @@ export class ModalempresaComponent implements OnInit {
     this.formEmpresa = this.formBuilder.group({
       id: null,
       denominacion: new FormControl('', [Validators.required]),
-      telefono: new FormControl('', [Validators.required, Validators.pattern(/^[0-9]\d*$/)]),
-      horarioDeAtencion: new FormControl('', [Validators.required]),
-      quienesSomos: new FormControl('', [Validators.required]),
+      telefono: new FormControl('', [Validators.required]),
+      horario_de_atencion: new FormControl('', [Validators.required]),
+      quienes_somos: new FormControl('', [Validators.required]),
       latitud: new FormControl('', [Validators.required]),
       longitud: new FormControl('', [Validators.required]),
       domicilio: new FormControl('', [Validators.required]),
@@ -65,11 +66,11 @@ export class ModalempresaComponent implements OnInit {
   }
 
   onSave(formEmpresa: FormGroup): void {
-    if (formEmpresa.value.id === 0) {
-      // Agregar
+    if (formEmpresa.value.id === null) {
+      //Add
       this.add(formEmpresa.value);
     } else {
-      //Actualizar
+      //Update
       this.update(formEmpresa.value);
     }
     this.btnClose.nativeElement.click();
@@ -104,8 +105,8 @@ export class ModalempresaComponent implements OnInit {
       id: 0,
       denominacion: '',
       telefono: null,
-      horarioDeAtencion: '',
-      quienesSomos: '',
+      horario_de_atencion: '',
+      quienes_somos: '',
       latitud: null,
       longitud: null,
       direccion: '',

@@ -16,9 +16,9 @@ export class TablaempresaComponent implements OnInit {
   public empresaSeleccionada : Empresa = {
     id: 0,
     denominacion: '',
-    telefono: null,
-    horarioDeAtencion: '',
-    quienesSomos: '',
+    telefono: '',
+    horario_de_atencion: '',
+    quienes_somos: '',
     latitud: null,
     longitud: null,
     domicilio: '',

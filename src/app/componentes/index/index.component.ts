@@ -14,29 +14,26 @@ export class IndexComponent implements OnInit {
   public empresa: Empresa;
 
   public empresaSeleccionada: Empresa = {
-    id: 0,
-    denominacion: ''
+      denominacion: '',
+      telefono: '',
+      horario_de_atencion: '',
+      quienes_somos: '',
+      latitud: null,
+      longitud: null,
+      domicilio: '',
+      email: ''
   }
 
   constructor(private empresaService: EmpresaService, private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.getAllEmpresas();
   }
 
   getAllEmpresas() {
     this.empresaService.getAll().subscribe( res => {
       this.empresas = res;
     }, 
-    err => {
-      alert ('Error al traer todas las empresas: '+ err);
-    });
-  }
-
-  getOne(id: number){
-    this.empresaService.getOne(id).subscribe( res => {
-      this.empresa = res;
-      this.router.navigate[("/home/"+id)];
-    },
     err => {
       alert ('Error al traer todas las empresas: '+ err);
     });
