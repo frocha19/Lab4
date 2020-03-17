@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class IndexComponent implements OnInit {
 
-  public empresas: Empresa[];
+  public empresas: Empresa [];
   public empresa: Empresa;
 
   public empresaSeleccionada: Empresa = {
@@ -32,11 +32,11 @@ export class IndexComponent implements OnInit {
 
   getAllEmpresas() {
     this.empresaService.getAll().subscribe( res => {
-      this.empresas = res;
-    }, 
+      // this.empresas = res;
+    },
     err => {
-      alert ('Error al traer todas las empresas: '+ err);
+      alert ('Error al traer todas las empresas: ' + err);
     });
   }
-
+  
 }

@@ -6,7 +6,6 @@ import { Page404Component } from './componentes/page404/page404.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { DetalleComponent } from './componentes/detalle/detalle.component';
 
-
 const routes: Routes = [
   { path: '', component: IndexComponent },
   { path: 'home/:id', component: HomeComponent},

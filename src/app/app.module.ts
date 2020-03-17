@@ -14,7 +14,6 @@ import { ModalempresaComponent } from './componentes/modalempresa/modalempresa.c
 import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { DetalleComponent } from './componentes/detalle/detalle.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +23,9 @@ import { DetalleComponent } from './componentes/detalle/detalle.component';
     NavbarComponent,
     DetalleComponent,
     TablaempresaComponent,
-    ModalempresaComponent
+    ModalempresaComponent,
+    NavbarComponent,
+    DetalleComponent
   ],
   imports: [
     BrowserModule,
