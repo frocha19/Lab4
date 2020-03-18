@@ -20,8 +20,8 @@ export class ModalempresaComponent implements OnInit {
   public edit = false;
 
   constructor(private empresaService: EmpresaService,
-    @Host() private tabla: TablaempresaComponent,
-    private formBuilder: FormBuilder) { }
+              @Host() private tabla: TablaempresaComponent,
+              private formBuilder: FormBuilder) { }
 
   @Input() set empresaSeleccionada(valor) {
     this.onBuild();

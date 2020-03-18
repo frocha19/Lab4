@@ -7,9 +7,9 @@
     </div>
 
     <div class="help-box text-right">
-        <p>Telefono: <a href="callto:#">800-2345-6789</a></p>
+        <p>Telefono: <a href="callto:#">{{this.empresa.telefono}}</a></p>
 
-        <small><span>Horario:</span> 6am-4pm PST M-Th; &nbsp;6am-3pm PST Fri</small>
+        <small><span>Horario:</span> {{this.empresa.horario_de_atencion}}</small>
     </div>
 </div>
 
@@ -76,4 +76,7 @@
         {{this.empresa.denominacion}}<span id="copyright-year"></span>
         <a href="">Privacy Policy</a>
     </p>
+</div>
+<div class="btn btn-primary" (click)="openDetalle()">
+    <!--app-detalle [empresaSel]="this.empresa"></app-detalle-->
 </div>

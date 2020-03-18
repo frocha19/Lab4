@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Empresa } from '../../model/empresa';
-import { EmpresaService } from 'src/app/services/empresa.service';
+import { EmpresaService } from '../../services/empresa.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,20 +10,30 @@ import { EmpresaService } from 'src/app/services/empresa.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private service: EmpresaService) { }
-  @Input() ids: number;
-  public empresaOrignal: any;
-  public empresa = {
-    denominacion: 'Empresa 1',
-    telefono: '123456789',
-    quienesSomos: 'Lorem ipsum dolor sit amet conse ctetur adipisicing elit.',
-    domicilio: '4578 Marmora Road,Glasgow D04 89GR',
-    email: 'info@demolink.org'
+  constructor(private empresaService: EmpresaService, private router: Router) { }
+
+  public am = parseInt(window.location.href.substring(27, window.location.href.length), 10);
+  public empresa: Empresa = {
+    id: 0,
+    denominacion: '',
+    telefono: '',
+    quienes_somos: '',
+    domicilio: '',
+    email: '',
+    horario_de_atencion: '',
+    latitud: null,
+    longitud: null
   };
 
   ngOnInit(): void {
-    console.log(this.ids);
-    console.log(this.service.getOne(this.ids));
+    this.empresaService.getOne(this.am).subscribe( res => {
+      this.empresa = res;
+    });
   }
 
+  openDetalle() {
+    localStorage.setItem('titulo', 'Curso de Angular avanzado - Víctor Robles');
+    console.log(localStorage.getItem('titulo'));
+    this.router.navigate(['detalle/1']);
+  }
 }

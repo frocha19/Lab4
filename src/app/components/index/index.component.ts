@@ -37,9 +37,4 @@ export class IndexComponent implements OnInit {
       alert ('Error al traer todas las empresas: ' + err);
     });
   }
-
-  onPreUpdate(id: number) {
-    console.log(id);
-    this.id = id;
-  }
 }

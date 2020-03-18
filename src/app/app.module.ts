@@ -15,6 +15,7 @@ import { DetalleComponent } from './components/detalle/detalle.component';
 import { TablanoticiaComponent } from './components/tablanoticia/tablanoticia.component';
 import { ModalnoticiaComponent } from './components/modalnoticia/modalnoticia.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EmpresaService } from './services/empresa.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [EmpresaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
