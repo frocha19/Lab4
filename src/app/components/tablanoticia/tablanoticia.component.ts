@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { NoticiaService } from '../../services/noticia.service';
 import { Noticia } from './../../model/noticia';
 import { Component, OnInit } from '@angular/core';
@@ -10,12 +11,11 @@ import { Component, OnInit } from '@angular/core';
 export class TablanoticiaComponent implements OnInit {
 
   public noticias: Noticia[];
-  indice: number;
 
-  public noticiaSeleccionada: Noticia = {
+  public noticia: Noticia = {
     id: 0,
     titulo_de_la_noticia: '',
-    resumen: '',
+    resumen_de_la_noticia: '',
     imagen_noticia: '',
     contenido_html: '',
     publicada: '',
@@ -24,7 +24,7 @@ export class TablanoticiaComponent implements OnInit {
 
   };
 
-  constructor(private noticiaService: NoticiaService) { }
+  constructor(private noticiaService: NoticiaService, private router: Router) { }
 
   ngOnInit() {
     this.getAllNoticias();
@@ -45,8 +45,8 @@ export class TablanoticiaComponent implements OnInit {
       this.noticiaService.delete(noticia.id).subscribe(
         res => {
           alert('El registro fue eliminado con éxito');
-          const indexNoticia = this.noticias.indexOf(noticia);
-          this.noticias.splice(indexNoticia, 1);
+          const indexEmpresa = this.noticias.indexOf(noticia);
+          this.noticias.splice(indexEmpresa, 1);
         },
         err => {
           alert ('Error al eliminar el registro seleccionado: ' + err);
@@ -54,9 +54,12 @@ export class TablanoticiaComponent implements OnInit {
       }
     }
 
-  onPreUpdate(noticia: Noticia) {
-    this.noticiaSeleccionada = noticia;
-    this.indice = this.noticias.indexOf(noticia);
+  agregar(){
+    this.router.navigate(["noticia/nueva"]);
+  }
+
+  update(id:number){
+    this.router.navigate(["noticia/"+id]);
   }
 
 }
