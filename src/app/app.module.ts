@@ -21,11 +21,9 @@ import { ModalnoticiaComponent } from './componentes/modalnoticia/modalnoticia.c
     IndexComponent,
     Page404Component,
     HomeComponent,
-    NavbarComponent,
     DetalleComponent,
     TablaempresaComponent,
     ModalempresaComponent,
-    NavbarComponent,
     DetalleComponent,
     TablanoticiaComponent,
     ModalnoticiaComponent
