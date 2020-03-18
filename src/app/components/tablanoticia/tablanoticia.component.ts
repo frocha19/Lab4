@@ -1,4 +1,4 @@
-import { NoticiaService } from './../../servicios/noticia.service';
+import { NoticiaService } from '../../services/noticia.service';
 import { Noticia } from './../../model/noticia';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,9 +10,9 @@ import { Component, OnInit } from '@angular/core';
 export class TablanoticiaComponent implements OnInit {
 
   public noticias: Noticia[];
-  indice:number;
+  indice: number;
 
-  public noticiaSeleccionada : Noticia = {
+  public noticiaSeleccionada: Noticia = {
     id: 0,
     titulo_de_la_noticia: '',
     resumen: '',
@@ -33,9 +33,9 @@ export class TablanoticiaComponent implements OnInit {
   getAllNoticias() {
     this.noticiaService.getAll().subscribe( res => {
       this.noticias = res;
-    }, 
+    },
     err => {
-      alert ('Error al traer todas las noticias: '+ err);
+      alert ('Error al traer todas las noticias: ' + err);
     });
   }
 
@@ -49,7 +49,7 @@ export class TablanoticiaComponent implements OnInit {
           this.noticias.splice(indexNoticia, 1);
         },
         err => {
-          alert ('Error al eliminar el registro seleccionado: '+ err);
+          alert ('Error al eliminar el registro seleccionado: ' + err);
         });
       }
     }

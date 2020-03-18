@@ -1,4 +1,4 @@
-import { EmpresaService } from './../../servicios/empresa.service';
+import { EmpresaService } from '../../services/empresa.service';
 import { Empresa } from './../../model/empresa';
 import { Component, OnInit } from '@angular/core';
 
@@ -11,9 +11,9 @@ import { Component, OnInit } from '@angular/core';
 export class TablaempresaComponent implements OnInit {
 
   public empresas: Empresa[];
-  indice:number;
+  indice: number;
 
-  public empresaSeleccionada : Empresa = {
+  public empresaSeleccionada: Empresa = {
     id: 0,
     denominacion: '',
     telefono: '',
@@ -34,9 +34,9 @@ export class TablaempresaComponent implements OnInit {
   getAllEmpresas() {
     this.empresaService.getAll().subscribe( res => {
       this.empresas = res;
-    }, 
+    },
     err => {
-      alert ('Error al traer todas las empresas: '+ err);
+      alert ('Error al traer todas las empresas: ' + err);
     });
   }
 
@@ -50,7 +50,7 @@ export class TablaempresaComponent implements OnInit {
           this.empresas.splice(indexEmpresa, 1);
         },
         err => {
-          alert ('Error al eliminar el registro seleccionado: '+ err);
+          alert ('Error al eliminar el registro seleccionado: ' + err);
         });
       }
     }

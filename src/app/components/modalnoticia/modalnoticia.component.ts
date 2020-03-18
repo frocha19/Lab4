@@ -1,5 +1,5 @@
 import { TablanoticiaComponent } from './../tablanoticia/tablanoticia.component';
-import { NoticiaService } from './../../servicios/noticia.service';
+import { NoticiaService } from '../../services/noticia.service';
 import { Component, OnInit, ViewChild, ElementRef, Host, Input } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Noticia } from 'src/app/model/noticia';
@@ -20,7 +20,6 @@ export class ModalnoticiaComponent implements OnInit {
   constructor(private noticiaService: NoticiaService,
     @Host() private tabla: TablanoticiaComponent,
     private formBuilder: FormBuilder) { }
-    
 
   @Input() set noticiaSeleccionada(valor) {
     this.onBuild();
@@ -63,10 +62,10 @@ export class ModalnoticiaComponent implements OnInit {
 
   onSave(formNoticia: FormGroup): void {
     if (formNoticia.value.id === null) {
-      //Add
+      // Add
       this.add(formNoticia.value);
     } else {
-      //Update
+      // Update
       this.update(formNoticia.value);
     }
     this.btnClose.nativeElement.click();

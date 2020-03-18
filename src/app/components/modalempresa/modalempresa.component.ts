@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, Host, Input } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { EmpresaService } from 'src/app/servicios/empresa.service';
+import { EmpresaService } from 'src/app/services/empresa.service';
 import { TablaempresaComponent } from '../tablaempresa/tablaempresa.component';
 import { Empresa } from 'src/app/model/empresa';
 
@@ -22,7 +22,6 @@ export class ModalempresaComponent implements OnInit {
   constructor(private empresaService: EmpresaService,
     @Host() private tabla: TablaempresaComponent,
     private formBuilder: FormBuilder) { }
-    
 
   @Input() set empresaSeleccionada(valor) {
     this.onBuild();
@@ -67,10 +66,10 @@ export class ModalempresaComponent implements OnInit {
 
   onSave(formEmpresa: FormGroup): void {
     if (formEmpresa.value.id === null) {
-      //Add
+      // Add
       this.add(formEmpresa.value);
     } else {
-      //Update
+      // Update
       this.update(formEmpresa.value);
     }
     this.btnClose.nativeElement.click();
