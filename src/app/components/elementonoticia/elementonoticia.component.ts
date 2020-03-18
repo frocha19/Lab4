@@ -2,6 +2,7 @@ import { NoticiaService } from './../../services/noticia.service';
 import { Component, OnInit } from '@angular/core';
 import { Noticia } from 'src/app/model/noticia';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Empresa } from 'src/app/model/empresa';
 
 @Component({
   selector: 'app-elementonoticia',
@@ -9,6 +10,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./elementonoticia.component.css']
 })
 export class ElementonoticiaComponent implements OnInit {
+
+  public empresas: Empresa[];
 
   noticia: Noticia = {
     id: 0,

@@ -20,12 +20,6 @@
       </div>
       <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">Contenido</span>
-        </div>
-        <input type="text" class="form-control" placeholder="ContenidoHTML" aria-label="Contenido" aria-describedby="basic-addon1" [(ngModel)]="noticia.contenido_html">
-      </div>
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
           <span class="input-group-text" id="basic-addon1">Publicada: Y/N</span>
         </div>
         <input type="text" class="form-control" placeholder="Y/N" aria-label="Publicada" aria-describedby="basic-addon1" [(ngModel)]="noticia.publicada">
@@ -40,8 +34,18 @@
         <div class="input-group-prepend">
           <span class="input-group-text" id="basic-addon1">Empresa</span>
         </div>
-        <input type="text" class="form-control" placeholder="ID Empresa" aria-label="Empresa" aria-describedby="basic-addon1" [(ngModel)]="noticia.id_empresa_id">
+            <select name="Empresa" *ngFor="let i of empresas">
+              <option value="{{i.id}}">{{i.denominacion}}</option>
+            </select>
       </div>
-
+      <div>
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Contenido</span>
+        </div>
+        <editor [init]="{height:450, plugins: 'link'}">
+          <input type="text" class="form-control" placeholder="Contenido" aria-label="Contenido" aria-describedby="basic-addon1" [(ngModel)]="noticia.contenido_html">
+        </editor>
+      </div>
+      <br>
       <button class="btn btn-success btn-block" (click)="save()">Guardar</button>
 </div>

@@ -15,6 +15,8 @@ import { TablanoticiaComponent } from './components/tablanoticia/tablanoticia.co
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmpresaService } from './services/empresa.service';
 import { ElementonoticiaComponent } from './components/elementonoticia/elementonoticia.component';
+import { EditorModule } from '@tinymce/tinymce-angular';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { ElementonoticiaComponent } from './components/elementonoticia/elementon
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    EditorModule
   ],
   providers: [EmpresaService],
   bootstrap: [AppComponent]
