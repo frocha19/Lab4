@@ -1,4 +1,7 @@
+import { Empresa } from './../../model/empresa';
+import { EmpresaService } from './../../servicios/empresa.service';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,21 +10,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  empresa: Empresa = {
+    id: 0,
+    denominacion: '',
+    telefono: '',
+    horario_de_atencion: '',
+    quienes_somos: '',
+    latitud: null,
+    longitud: null,
+    domicilio: '',
+    email: ''
+  }
 
   url = window.location.href;
 
+  constructor(private service: EmpresaService, private actRouter : ActivatedRoute) {
+  }
+
+  ngOnInit() {
+  }
+
   direction(): boolean{
-    let index;
     if(this.url === "http://localhost:4200/"){
       return false;
     }else{
       return true;
     }
-  }
-
-  empresa = {id: 1, denominacion: 'Denominacion Empresa', telefono: '123456789', horarioDeAtencion: '6am-4pm PST M-Th, 6am-3pm PST Fri'};
-  ngOnInit(): void {
   }
 
 }

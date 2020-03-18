@@ -1,7 +1,6 @@
 import { EmpresaService } from './../../servicios/empresa.service';
 import { Empresa } from './../../model/empresa';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-index',
@@ -24,7 +23,7 @@ export class IndexComponent implements OnInit {
       email: ''
   }
 
-  constructor(private empresaService: EmpresaService, private router: Router) { }
+  constructor(private empresaService: EmpresaService) { }
 
   ngOnInit() {
     this.getAllEmpresas();

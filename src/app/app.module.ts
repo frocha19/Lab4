@@ -13,6 +13,8 @@ import { TablaempresaComponent } from './componentes/tablaempresa/tablaempresa.c
 import { ModalempresaComponent } from './componentes/modalempresa/modalempresa.component';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { DetalleComponent } from './componentes/detalle/detalle.component';
+import { TablanoticiaComponent } from './componentes/tablanoticia/tablanoticia.component';
+import { ModalnoticiaComponent } from './componentes/modalnoticia/modalnoticia.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { DetalleComponent } from './componentes/detalle/detalle.component';
     TablaempresaComponent,
     ModalempresaComponent,
     NavbarComponent,
-    DetalleComponent
+    DetalleComponent,
+    TablanoticiaComponent,
+    ModalnoticiaComponent
   ],
   imports: [
     BrowserModule,

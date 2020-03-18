@@ -1,0 +1,98 @@
+<div class="modal" id="modalNoticia" data-backdrop="static" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{edit ? 'Actualizar noticia' : 'Agregar noticia'}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form name="formNoticia" [formGroup]="formNoticia" (ngSubmit)="onSave(formNoticia)">
+                    <input type="hidden" name="id" id="id" formControlName="id">
+
+                    <div class="form-group">
+                        <label for="titulo_de_la_noticia">Titulo</label>
+                        <input type="text" class="form-control" placeholder="Titulo" formControlName="titulo_de_la_noticia">
+                        <div *ngIf ="formNoticia.controls['titulo_de_la_noticia'].invalid &&
+                                    formNoticia.controls['titulo_de_la_noticia'].touched"
+                                    class="is-invalid">
+                                    El título es obligatorio.
+                        </div>
+                    </div>    
+
+                    <div class="form-row">
+
+                        <div class="form-group col-md-6">
+                            <label for="resumen_noticia">Resumen</label>
+                            <input type="text" class="form-control" placeholder="Resumen" formControlName="resumen_noticia">
+                            <div *ngIf ="formNoticia.controls['resumen_noticia'].invalid &&
+                                        formNoticia.controls['resumen_noticia'].touched"
+                                        class="is-invalid">
+                                        El resumen es obligatorio.
+                            </div>
+                        </div>  
+    
+                        <div class="form-group col-md-6">
+                            <label for="imagen_noticia">Imagen</label>
+                            <input type="text" class="form-control" placeholder="Imagen" formControlName="imagen_noticia">
+                            <div *ngIf ="formNoticia.controls['imagen_noticia'].invalid &&
+                                        formNoticia.controls['imagen_noticia'].touched"
+                                        class="is-invalid">
+                                        La imagen es obligatoria.
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contenido_html">Contenido</label>
+                        <input type="text" class="form-control" placeholder="Contenido" formControlName="contenido_html">
+                        <div *ngIf ="formNoticia.controls['contenido_html'].invalid &&
+                                    formNoticia.controls['contenido_html'].touched"
+                                    class="is-invalid">
+                                    Contenido obligatorio.
+                        </div>
+                    </div>  
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="publicada">Publicada</label>
+                            <input type="text" class="form-control" placeholder="Publicada" formControlName="publicada">
+                            <div *ngIf ="formNoticia.controls['publicada'].invalid &&
+                                        formNoticia.controls['publicada'].touched"
+                                        class="is-invalid">
+                                        Publicada es obligatorio.
+                            </div>
+                        </div>  
+    
+                        <div class="form-group col-md-6">
+                            <label for="fecha_publicacion">Fecha</label>
+                            <input type="text" class="form-control" placeholder="Fecha" formControlName="fecha_publicacion">
+                            <div *ngIf ="formNoticia.controls['fecha_publicacion'].invalid &&
+                                        formNoticia.controls['fecha_publicacion'].touched"
+                                        class="is-invalid">
+                                        La fecha es obligatoria.
+                            </div>
+                        </div>  
+                    </div>
+
+                    <div class="form-group">
+                        <label for="id_empresa_id">Empresa</label>
+                        <input type="text" class="form-control" placeholder="Empresa" formControlName="id_empresa_id">
+                        <div *ngIf ="formNoticia.controls['id_empresa_id'].invalid &&
+                                    formNoticia.controls['id_empresa_id'].touched"
+                                    class="is-invalid">
+                                    Seleccione una empresa.
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" #btnClose (click)="onClose()">Cerrar</button>
+                        <button type="submit " class="btn btn-primary " #btnClose [disabled]="formNoticia.invalid">Guardar noticia</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

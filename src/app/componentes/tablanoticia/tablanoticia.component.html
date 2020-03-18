@@ -1,0 +1,53 @@
+<section>
+    <div class="container mt-5">
+        <div class="row mb-4">
+            <div class="col-xs-12 col-sm-8 col-md-10">
+                <h2>Gestión de Noticias</h2>
+            </div>
+            <div class=" col-xs-12 col-sm-4 col-md-2">
+                <button type="button" class="btn btn-primary float-right ml-3 btn-block" data-toggle="modal" data-target="#modalNoticia">+ Agregar</button>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <table class="table">
+
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Denominación</th>
+                            <th scope="col">Título</th>
+                            <th scope="col">Resumen</th>
+                            <th scope="col">Imagen</th>
+                            <th scope="col">Contenido</th>
+                            <th scope="col">Publicada</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Empresa</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let i of noticias">
+                            <th scope="row">{{i.id}}</th>
+                            <td>{{i.titulo_de_la_noticia}}</td>
+                            <td>{{i.resumen}}</td>
+                            <td>{{i.imagen_noticia}}</td>
+                            <td>{{i.contenido_html}}</td>
+                            <td>{{i.publicada}}</td>
+                            <td>{{i.fecha_publicacion}}</td>
+                            <td>{{i.id_empresa_id}}</td>
+                            <td>
+                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalNoticia" (click)="onPreUpdate(i)">Actualizar</button>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-danger" (click)="delete(i)">Eliminar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+<app-modalnoticia [noticiaSeleccionada]="noticiaSeleccionada"></app-modalnoticia>

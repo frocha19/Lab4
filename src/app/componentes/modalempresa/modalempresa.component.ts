@@ -58,8 +58,8 @@ export class ModalempresaComponent implements OnInit {
       telefono: new FormControl('', [Validators.required]),
       horario_de_atencion: new FormControl('', [Validators.required]),
       quienes_somos: new FormControl('', [Validators.required]),
-      latitud: new FormControl('', [Validators.required]),
-      longitud: new FormControl('', [Validators.required]),
+      latitud: new FormControl('', [Validators.required, Validators.pattern(/^[0-9]\d*$/)]),
+      longitud: new FormControl('', [Validators.required, Validators.pattern(/^[0-9]\d*$/)]),
       domicilio: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required]),
     });
@@ -83,7 +83,7 @@ export class ModalempresaComponent implements OnInit {
         this.tabla.empresas.push(res);
       },
       err => {
-        alert('Ocurrió un error al agregar la persona');
+        alert('Ocurrió un error al agregar la empresa');
       }
     );
   }
@@ -95,7 +95,7 @@ export class ModalempresaComponent implements OnInit {
         this.tabla.empresas.splice(this.tabla.indice, 1, empresa);
       },
       err => {
-        alert('Ocurrió un error al actualizar persona');
+        alert('Ocurrió un error al actualizar empresa');
       }
     );
   }

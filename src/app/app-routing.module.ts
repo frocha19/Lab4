@@ -1,3 +1,4 @@
+import { TablanoticiaComponent } from './componentes/tablanoticia/tablanoticia.component';
 import { TablaempresaComponent } from './componentes/tablaempresa/tablaempresa.component';
 import { IndexComponent } from './componentes/index/index.component';
 import { NgModule } from '@angular/core';
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'home/:id', component: HomeComponent},
   { path: 'detalle/:id', component: DetalleComponent},
   { path: 'tabla/empresa', component: TablaempresaComponent},
+  { path: 'tabla/noticia', component: TablanoticiaComponent},
   { path: '**', component: Page404Component}
 ];
 
