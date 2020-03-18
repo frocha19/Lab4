@@ -13,9 +13,12 @@
                 <th scope="row">{{i.id}}</th>
                 <td>{{i.denominacion}}</td>
                 <td>
-                    <a href="/home/{{i.id}}" (click)="onPreUpdate(i)">Home de la Página</a>
+                    <a href="/home/{{i.id}}" (click)="onPreUpdate(i.id)">Home de la Página</a>
                 </td>
             </tr>
         </tbody>
     </table>
+</div>
+<div hidden>
+    <app-home [ids]="id"></app-home>
 </div>

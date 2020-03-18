@@ -11,6 +11,7 @@ export class IndexComponent implements OnInit {
 
   public empresas: Empresa [];
   public empresa: Empresa;
+  public id: number;
   public empresaSeleccionada: Empresa = {
       denominacion: '',
       telefono: '',
@@ -21,7 +22,6 @@ export class IndexComponent implements OnInit {
       domicilio: '',
       email: ''
   };
-  @Output() valorSalida = new EventEmitter<Empresa>();
 
   constructor(private empresaService: EmpresaService) { }
 
@@ -38,7 +38,8 @@ export class IndexComponent implements OnInit {
     });
   }
 
-  onPreUpdate(empresa: Empresa) {
-    this.empresaSeleccionada = empresa;
+  onPreUpdate(id: number) {
+    console.log(id);
+    this.id = id;
   }
 }

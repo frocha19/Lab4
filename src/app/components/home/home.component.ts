@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Empresa } from '../../model/empresa';
+import { EmpresaService } from 'src/app/services/empresa.service';
 
 @Component({
   selector: 'app-home',
@@ -8,8 +9,8 @@ import { Empresa } from '../../model/empresa';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
-  @Input() empresaSeleccionada: Empresa;
+  constructor(private service: EmpresaService) { }
+  @Input() ids: number;
   public empresaOrignal: any;
   public empresa = {
     denominacion: 'Empresa 1',
@@ -20,6 +21,8 @@ export class HomeComponent implements OnInit {
   };
 
   ngOnInit(): void {
+    console.log(this.ids);
+    console.log(this.service.getOne(this.ids));
   }
 
 }
