@@ -20,7 +20,7 @@ export class TablanoticiaComponent implements OnInit {
     contenido_html: '',
     publicada: '',
     fecha_publicacion: null,
-    id_empresa_id: null
+    idEmpresa: null
 
   };
 

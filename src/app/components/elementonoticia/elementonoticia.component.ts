@@ -18,7 +18,7 @@ export class ElementonoticiaComponent implements OnInit {
     contenido_html: '',
     publicada: '',
     fecha_publicacion: null,
-    id_empresa_id: null
+    idEmpresa: null
   }
 
   constructor(private noticiaService: NoticiaService, private router: Router, private actRoute: ActivatedRoute) {

@@ -1,7 +1,9 @@
-import { Component, OnInit, Input, Host, Optional } from '@angular/core';
-import { Empresa } from '../../model/empresa';
-import { EmpresaService } from '../../services/empresa.service';
-import { HomeComponent } from '../home/home.component';
+import { EmpresaService } from './../../services/empresa.service';
+import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Noticia } from '../../model/noticia';
+import { NoticiaService } from '../../services/noticia.service';
+import { Empresa } from 'src/app/model/empresa';
 
 @Component({
   selector: 'app-detalle',
@@ -10,32 +12,26 @@ import { HomeComponent } from '../home/home.component';
 })
 export class DetalleComponent implements OnInit {
 
-  public empresa: Empresa = {
-    id: 0,
-    denominacion: '',
-    telefono: '',
-    quienes_somos: '',
-    domicilio: '',
-    email: '',
-    horario_de_atencion: '',
-    latitud: null,
-    longitud: null
-  };
+  public noticia: Noticia;
+  public empresa: Empresa;
 
-  constructor(@Host() @Optional() private tabla: HomeComponent) { }
-
-  /*@Input() set empresaSel(valor) {
-    if (valor) {
-      this.empresa = valor;
-      console.log(valor);
-      console.log(this.empresa);
-    }
-  }*/
-
-  ngOnInit(): void {
-    // this.empresa = this.tabla.empresa;
-    // setTimeout(function() {console.log(this.tabla.empresa); }, 3000);
-    console.log(localStorage.getItem('titutlo'));
+  constructor(private actRoute: ActivatedRoute, private noticiaServicio: NoticiaService, private empresaServicio: EmpresaService) {
+    this.actRoute.params.subscribe((data) => {
+      if (data['id']) {
+        this.getOne(data['id']);
+      }
+    });
   }
 
+  ngOnInit(): void {
+  }
+
+  getOne(id: number) {
+    this.noticiaServicio.getOne(id).subscribe((data) => {
+      this.noticia = data;
+      this.empresaServicio.getOne(this.noticia.idEmpresa).subscribe((dato) => {
+        this.empresa = dato;
+      });
+    });
+  }
 }

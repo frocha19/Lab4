@@ -6,5 +6,5 @@ export class Noticia {
     contenido_html: string;
     publicada: string;
     fecha_publicacion: Date;
-    id_empresa_id: number;
+    idEmpresa: number;
 }

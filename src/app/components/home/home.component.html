@@ -1,19 +1,20 @@
-<div class="container top-sect" style="background-color: #62C8FE;">
-    <div>
+<section style="background-color: #FF0000;">
+    <div class="ml-5 mr-5" style="background-color: #62C8FE;">
         <h1>
-            <a href="./"><small>{{this.empresa.denominacion}}</small></a>
+            <a href="/home/{{this.empresa.id}}"><small>{{this.empresa.denominacion}}</small></a>
         </h1>
-        <a class="search-form_toggle" href="#"></a>
+        <!--a class="search-form_toggle" href="#"></a-->
+        <div class="help-box text-right">
+            <small>
+            <span>Telefono: </span><a href="callto:#">{{this.empresa.telefono}}</a>
+        </small>
+            <br>
+            <small>
+            <span>Horario:</span> {{this.empresa.horario_de_atencion}}
+        </small>
+        </div>
     </div>
-
-    <div class="help-box text-right">
-        <p>Telefono: <a href="callto:#">{{this.empresa.telefono}}</a></p>
-
-        <small><span>Horario:</span> {{this.empresa.horario_de_atencion}}</small>
-    </div>
-</div>
-
-<!--div id="stuck_container" class="stuck_container">
+    <!--div id="stuck_container" class="stuck_container">
     <div class="container">
 
         <form class="search-form" action="search.php" method="GET" accept-charset="utf-8">
@@ -27,33 +28,90 @@
     </div>
 
 </div-->
-<br>
-<div class="container-fluid">
-    <h1 class="txt-pr">
-        Quienes Somos
-    </h1>
-    <div class="row">
-        <div class="col">
-            <p style="text-align:justify">
-                {{this.empresa.denominacion}}
-            </p>
+    <section class="mt-5 ml-5 mr-5 mb-5">
+        <div class="bd-example">
+            <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                    <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
+                    <li data-target="#carouselExampleCaptions" data-slide-to="5"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://cnnespanol2.files.wordpress.com/2019/12/s_64a163f16ecbb099e52f2f8271f73cbbfcfc9034be4d646f7375e4db1ca6f3d7_1573501883482_ap_19001106049831-1.jpg" class="d-block w-100" alt="First slice" (click)="goNoticia(this.noticias[0].id)">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>{{this.noticias[0].titulo_de_la_noticia}}</h5>
+                            <p>{{this.noticias[0].resumen_de_la_noticia}}</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://i.ytimg.com/vi/n_KrxgXrU4w/maxresdefault.jpg" class="d-block w-100" alt="Second slice" (click)="goNoticia(this.noticias[1].id)">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>{{this.noticias[1].titulo_de_la_noticia}}</h5>
+                            <p>{{this.noticias[1].resumen_de_la_noticia}}</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://marcianosmx.com/wp-content/uploads/2013/08/minimoo64_fractals_01.jpg" class="d-block w-100" alt="Third slice" (click)="goNoticia(this.noticias[2].id)">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>{{this.noticias[2].titulo_de_la_noticia}}</h5>
+                            <p>{{this.noticias[2].resumen_de_la_noticia}}</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://cnnespanol2.files.wordpress.com/2019/12/mejores-imagenes-del-ancc83o-noticias-2019-galeria10.jpg" class="d-block w-100" alt="Four slice" (click)="goNoticia(this.noticias[3].id)">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>{{this.noticias[3].titulo_de_la_noticia}}</h5>
+                            <p>{{this.noticias[3].resumen_de_la_noticia}}</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://cdn.pixabay.com/photo/2020/03/15/09/56/rest-4933097__340.jpg" class="d-block w-100" alt="Five slice" (click)="goNoticia(this.noticias[4].id)">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>{{this.noticias[4].titulo_de_la_noticia}}</h5>
+                            <p>{{this.noticias[4].resumen_de_la_noticia}}</p>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Anterior</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Siguiente</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    <div class="container-fluid">
+        <h1 class="txt-pr">
+            Quienes Somos
+        </h1>
+        <div class="row">
+            <div class="col">
+                <p style="text-align:justify">
+                    {{this.empresa.denominacion}}
+                </p>
+            </div>
         </div>
     </div>
-</div>
-<div class="container">
-    <h2 class="txt-pr">
-        Donde estamos
-    </h2>
-</div>
-<div class="map">
-    <div id="google-map" class="map_model" data-zoom="11"></div>
-    <ul class="map_locations">
-        <li data-x="-73.9874068" data-y="40.643180" data-basic="images/gmap_marker.png" data-active="images/gmap_marker_active.png">
-            <div class="location">
-                <h3 class="txt-clr1" style="color:black">
-                    <small>{{this.empresa.denominacion}}</small>
-                </h3>
-                <address>
+    <div class="container">
+        <h2 class="txt-pr">
+            Donde estamos
+        </h2>
+    </div>
+    <div class="map">
+        <div id="google-map" class="map_model" data-zoom="11"></div>
+        <ul class="map_locations">
+            <li data-x="-73.9874068" data-y="40.643180" data-basic="images/gmap_marker.png" data-active="images/gmap_marker_active.png">
+                <div class="location">
+                    <h3 class="txt-clr1" style="color:black">
+                        <small>{{this.empresa.denominacion}}</small>
+                    </h3>
+                    <address>
                         <dl>
                             <dt>Telefono: </dt>
                             <dd class="phone" style="color:black"><a href="callto:#">{{this.empresa.telefono}}</a></dd>
@@ -67,16 +125,14 @@
                             <dd style="color:black"><a href="mailto:#">{{this.empresa.email}}</a></dd>
                         </dl>
                     </address>
-            </div>
-        </li>
-    </ul>
-</div>
-<div class="container">
-    <p class="rights">
-        {{this.empresa.denominacion}}<span id="copyright-year"></span>
-        <a href="">Privacy Policy</a>
-    </p>
-</div>
-<div class="btn btn-primary" (click)="openDetalle()">
-    <!--app-detalle [empresaSel]="this.empresa"></app-detalle-->
-</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="container">
+        <p class="rights">
+            {{this.empresa.denominacion}} <span id="copyright-year"></span>
+            <a href="">Privacy Policy</a>
+        </p>
+    </div>
+</section>

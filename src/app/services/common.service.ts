@@ -37,4 +37,8 @@ export abstract class CommonService<E> {
     return throwError('Por favor, intente de nuevo.');
   }
 
+  // Service Add
+  /*getLast(id: number): Observable<E> {
+    return this.http.getLast<E>(this.miUrl + id).pipe(catchError(this.handleError));
+  }*/
 }
