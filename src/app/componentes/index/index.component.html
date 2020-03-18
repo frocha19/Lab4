@@ -2,20 +2,20 @@
 <div>
     <table class="table">
         <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Empresa</th>
-            <th scope="col">Ver Página</th>
-          </tr>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Empresa</th>
+                <th scope="col">Ver Página</th>
+            </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let i of empresas">
-            <th scope="row">{{i.id}}</th>
-            <td>{{i.denominacion}}</td>
-            <td>
-              <a href="/home/{{i.id}}">Home de la Página</a>
-            </td>
-          </tr>
+            <tr *ngFor="let i of empresas">
+                <th scope="row">{{i.id}}</th>
+                <td>{{i.denominacion}}</td>
+                <td>
+                    <a href="/home/{{i.id}}" (click)="onPreUpdate(i)">Home de la Página</a>
+                </td>
+            </tr>
         </tbody>
-      </table>    
+    </table>
 </div>

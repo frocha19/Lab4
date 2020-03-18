@@ -1,6 +1,6 @@
 import { EmpresaService } from './../../servicios/empresa.service';
 import { Empresa } from './../../model/empresa';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-index',
@@ -11,7 +11,6 @@ export class IndexComponent implements OnInit {
 
   public empresas: Empresa [];
   public empresa: Empresa;
-
   public empresaSeleccionada: Empresa = {
       denominacion: '',
       telefono: '',
@@ -21,7 +20,8 @@ export class IndexComponent implements OnInit {
       longitud: null,
       domicilio: '',
       email: ''
-  }
+  };
+  @Output() valorSalida = new EventEmitter<Empresa>();
 
   constructor(private empresaService: EmpresaService) { }
 
@@ -38,4 +38,7 @@ export class IndexComponent implements OnInit {
     });
   }
 
+  onPreUpdate(empresa: Empresa) {
+    this.empresaSeleccionada = empresa;
+  }
 }

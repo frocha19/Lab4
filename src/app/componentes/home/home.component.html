@@ -1,3 +1,35 @@
+<div class="container top-sect" style="background-color: #62C8FE;">
+    <div>
+        <!--h1>
+            <a href="./"><small>{{this.empresa.denominacion}}</small></a>
+        </h1-->
+        <h1>
+            <a href="./"><small>{{this.empresa.denominacion}}</small></a>
+        </h1>
+        <a class="search-form_toggle" href="#"></a>
+    </div>
+
+    <div class="help-box text-right">
+        <p>Telefono: <a href="callto:#">800-2345-6789</a></p>
+
+        <small><span>Horario:</span> 6am-4pm PST M-Th; &nbsp;6am-3pm PST Fri</small>
+    </div>
+</div>
+
+<!--div id="stuck_container" class="stuck_container">
+    <div class="container">
+
+        <form class="search-form" action="search.php" method="GET" accept-charset="utf-8">
+            <label class="search-form_label">
+  <input class="search-form_input" type="text" name="s" autocomplete="off" placeholder="" />
+  <span class="search-form_liveout"></span>
+</label>
+            <button class="search-form_submit fa-search" type="submit"></button>
+        </form>
+
+    </div>
+
+</div-->
 <br>
 <div class="container-fluid">
     <h1 class="txt-pr">
@@ -44,7 +76,10 @@
 </div>
 <div class="container">
     <p class="rights">
-        {{this.empresa.denominacion}} &#169; <span id="copyright-year"></span>
+        {{this.empresa.denominacion}}<span id="copyright-year"></span>
         <a href="">Privacy Policy</a>
     </p>
+</div>
+<div hidden>
+    <app-index (valorSalida)="this.empresa = $event"></app-index>
 </div>

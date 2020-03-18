@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { IndexComponent } from './componentes/index/index.component';
 import { Page404Component } from './componentes/page404/page404.component';
 import { HomeComponent } from './componentes/home/home.component';
@@ -14,6 +14,7 @@ import { ModalempresaComponent } from './componentes/modalempresa/modalempresa.c
 import { DetalleComponent } from './componentes/detalle/detalle.component';
 import { TablanoticiaComponent } from './componentes/tablanoticia/tablanoticia.component';
 import { ModalnoticiaComponent } from './componentes/modalnoticia/modalnoticia.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,9 @@ import { ModalnoticiaComponent } from './componentes/modalnoticia/modalnoticia.c
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
