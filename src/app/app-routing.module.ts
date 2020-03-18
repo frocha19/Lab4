@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { IndexComponent } from './componentes/index/index.component';
-import { TablanoticiaComponent } from './componentes/tablanoticia/tablanoticia.component';
-import { TablaempresaComponent } from './componentes/tablaempresa/tablaempresa.component';
-import { Page404Component } from './componentes/page404/page404.component';
-import { HomeComponent } from './componentes/home/home.component';
-import { DetalleComponent } from './componentes/detalle/detalle.component';
+import { IndexComponent } from './components/index/index.component';
+import { TablanoticiaComponent } from './components/tablanoticia/tablanoticia.component';
+import { TablaempresaComponent } from './components/tablaempresa/tablaempresa.component';
+import { Page404Component } from './components/page404/page404.component';
+import { HomeComponent } from './components/home/home.component';
+import { DetalleComponent } from './components/detalle/detalle.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },

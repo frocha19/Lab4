@@ -6,14 +6,14 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { IndexComponent } from './componentes/index/index.component';
-import { Page404Component } from './componentes/page404/page404.component';
-import { HomeComponent } from './componentes/home/home.component';
-import { TablaempresaComponent } from './componentes/tablaempresa/tablaempresa.component';
-import { ModalempresaComponent } from './componentes/modalempresa/modalempresa.component';
-import { DetalleComponent } from './componentes/detalle/detalle.component';
-import { TablanoticiaComponent } from './componentes/tablanoticia/tablanoticia.component';
-import { ModalnoticiaComponent } from './componentes/modalnoticia/modalnoticia.component';
+import { IndexComponent } from './components/index/index.component';
+import { Page404Component } from './components/page404/page404.component';
+import { HomeComponent } from './components/home/home.component';
+import { TablaempresaComponent } from './components/tablaempresa/tablaempresa.component';
+import { ModalempresaComponent } from './components/modalempresa/modalempresa.component';
+import { DetalleComponent } from './components/detalle/detalle.component';
+import { TablanoticiaComponent } from './components/tablanoticia/tablanoticia.component';
+import { ModalnoticiaComponent } from './components/modalnoticia/modalnoticia.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
