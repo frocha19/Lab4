@@ -1,4 +1,3 @@
-import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { CommonService } from './common.service';
 import { Noticia } from '../model/noticia';

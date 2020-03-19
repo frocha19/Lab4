@@ -18,8 +18,10 @@
     <div class="input-group-prepend">
       <span class="input-group-text" id="basic-addon1">Imagen</span>
     </div>
-    <input type="text" class="form-control" placeholder="Imagen" aria-label="Imagen" aria-describedby="basic-addon1"
-      [(ngModel)]="noticia.imagen_noticia">
+    <div class="form-group">
+      <input type="file" name="image" (change)="fileChange($event)"
+        [(ngModel)]="noticia.imagen_noticia">
+    </div>
   </div>
   <div class="input-group mb-3">
     <div class="input-group-prepend">
@@ -46,12 +48,12 @@
     </select>
   </div>
   <div>
-      <div>
-        <span class="input-group-text" id="basic-addon1">Contenido</span>
-      </div>
-      <editor [(ngModel)]="noticia.contenido_html" [init]="{height: 500, plugins : 'image'}"></editor>
+    <div>
+      <span class="input-group-text" id="basic-addon1">Contenido</span>
+    </div>
+    <editor [(ngModel)]="noticia.contenido_html" [init]="{height: 500, plugins : 'image'}"></editor>
   </div>
-        
+
   <br>
   <button class="btn btn-success btn-block" (click)="save()">Guardar</button>
 </div>

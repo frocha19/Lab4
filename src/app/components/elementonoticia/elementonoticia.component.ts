@@ -1,9 +1,12 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EmpresaService } from './../../services/empresa.service';
 import { Empresa } from './../../model/empresa';
 import { NoticiaService } from './../../services/noticia.service';
 import { Component, OnInit } from '@angular/core';
 import { Noticia } from 'src/app/model/noticia';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-elementonoticia',
@@ -13,18 +16,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ElementonoticiaComponent implements OnInit {
 
   public empresas: Empresa[];
-
-  public empresa : Empresa = {
-    denominacion: '',
-    telefono: '',
-    horario_de_atencion: '',
-    quienes_somos: '',
-    latitud: null,
-    longitud: null,
-    domicilio: '',
-    email: ''
-  }
-
+  public respuestaImagenEnviada;
+  public resultadoCarga;
   noticia: Noticia = {
     id: 0,
     titulo_de_la_noticia: '',
@@ -35,9 +28,10 @@ export class ElementonoticiaComponent implements OnInit {
     fecha_publicacion: null,
     idEmpresa: null
   }
+  miUrl = 'http://localhost:9000/api/v1/noticia/';
 
-  constructor(private noticiaService: NoticiaService, private router: Router, 
-    private actRoute: ActivatedRoute, private empresaService: EmpresaService) {
+  constructor(private noticiaService: NoticiaService, private router: Router,
+    private actRoute: ActivatedRoute, private empresaService: EmpresaService, private http: HttpClient) {
     this.actRoute.params.subscribe((data) => {
       if (data['id'] !== "nueva") {
         this.getOne(data['id']);
@@ -92,12 +86,29 @@ export class ElementonoticiaComponent implements OnInit {
   }
 
   getAllEmpresas() {
-    this.empresaService.getAll().subscribe( res => {
+    this.empresaService.getAll().subscribe(res => {
       this.empresas = res;
     },
-    err => {
-      alert ('Error al traer todas las empresas para vincular la noticia: ' + err);
-    });
+      err => {
+        alert('Error al traer todas las empresas para vincular la noticia: ' + err);
+      });
   }
+
+  fileChange(event) {
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    }
+    let fileList: FileList = event.target.files;
+    if(fileList.length > 0) {
+        let file: File = fileList[0];
+        let formData:FormData = new FormData();
+        formData.append('uploadFile', file, file.name);
+        this.http.post(this.miUrl, formData, httpOptions)
+            .subscribe(
+                data => console.log('success'),
+                error => console.log(error)
+            )
+    }
+}
 
 }
