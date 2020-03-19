@@ -1,12 +1,10 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { EmpresaService } from './../../services/empresa.service';
 import { Empresa } from './../../model/empresa';
 import { NoticiaService } from './../../services/noticia.service';
 import { Component, OnInit } from '@angular/core';
 import { Noticia } from 'src/app/model/noticia';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-elementonoticia',
@@ -93,22 +91,5 @@ export class ElementonoticiaComponent implements OnInit {
         alert('Error al traer todas las empresas para vincular la noticia: ' + err);
       });
   }
-
-  fileChange(event) {
-    const httpOptions = {
-      headers: new HttpHeaders({'Content-Type': 'application/json'})
-    }
-    let fileList: FileList = event.target.files;
-    if(fileList.length > 0) {
-        let file: File = fileList[0];
-        let formData:FormData = new FormData();
-        formData.append('uploadFile', file, file.name);
-        this.http.post(this.miUrl, formData, httpOptions)
-            .subscribe(
-                data => console.log('success'),
-                error => console.log(error)
-            )
-    }
-}
 
 }
