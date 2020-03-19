@@ -12,8 +12,27 @@ import { Empresa } from 'src/app/model/empresa';
 })
 export class DetalleComponent implements OnInit {
 
-  public noticia: Noticia;
-  public empresa: Empresa;
+  public noticia: Noticia = {
+    id: 0,
+    titulo_de_la_noticia: '',
+    resumen_de_la_noticia: '',
+    imagen_noticia: '',
+    contenido_html: '',
+    publicada: '',
+    fecha_publicacion: null,
+    idEmpresa: null
+  };
+  public empresa: Empresa = {
+    id: 0,
+    denominacion: '',
+    telefono: '',
+    horario_de_atencion: '',
+    quienes_somos: '',
+    latitud: null,
+    longitud: null,
+    domicilio: '',
+    email: ''
+  };
 
   constructor(private actRoute: ActivatedRoute, private noticiaServicio: NoticiaService, private empresaServicio: EmpresaService) {
     this.actRoute.params.subscribe((data) => {

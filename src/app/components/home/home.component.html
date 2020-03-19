@@ -1,6 +1,6 @@
 <section style="background-color: #FF0000;">
     <div class="ml-5 mr-5" style="background-color: #62C8FE;">
-        <h1 class="ml-3">
+        <h1 class="ml-4">
             <a href="/home/{{this.empresa.id}}"><small>{{this.empresa.denominacion}}</small></a>
         </h1>
         <div class="help-box text-right mr-3">
@@ -17,7 +17,7 @@
         </small>
         </div>
     </div>
-    <section class="mt-5 ml-5 mr-5 mb-5">
+    <section class="mt-5 ml-5 mr-5 mb-5" align="center">
         <div class="bd-example">
             <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -75,48 +75,40 @@
             </div>
         </div>
     </section>
-    <div class="ml-5">
-        <div class="ml-5">
-            <div class="ml-5">
-                <div class="ml-5">
-                    <div class="ml-5">
-                        <div class="ml-5">
-                            <h1>
-                                Quienes Somos
-                            </h1>
-                            <div class="row">
-                                <div class="col">
-                                    <p>
-                                        {{this.empresa.denominacion}}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div align="center">
+        <h1>
+            Quienes Somos
+        </h1>
+        <div class="row">
+            <div class="col">
+                <p>
+                    {{this.empresa.denominacion}}
+                </p>
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container" align="center">
         <h2 class="txt-pr">
             Donde estamos
         </h2>
     </div>
     <section class="ml-5 mr-5">
-        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false" (mapClick)="mapClicked($event)">
-            <agm-marker *ngFor="let m of markers; let i = index" (markerClick)="clickedMarker(m.label, i)" [latitude]="m.lat" [longitude]="m.lng" [label]="m.label" [markerDraggable]="m.draggable" (dragEnd)="markerDragEnd(m, $event)">
-                <agm-info-window>
-                    <div class="location">
-                        <h3 class="txt-clr1" style="color:black">
-                            <small>{{this.empresa.denominacion}}</small>
-                        </h3>
-                    </div>
-                    <strong>InfoWindow content</strong>
-                </agm-info-window>
-            </agm-marker>
-            <agm-circle [latitude]="lat + 0.3" [longitude]="lng" [radius]="5000" [fillColor]="'red'" [circleDraggable]="true" [editable]="true">
-            </agm-circle>
-        </agm-map>
+        <div align="center">
+            <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false" (mapClick)="mapClicked($event)">
+                <agm-marker *ngFor="let m of markers; let i = index" (markerClick)="clickedMarker(m.label, i)" [latitude]="m.lat" [longitude]="m.lng" [label]="m.label" [markerDraggable]="m.draggable" (dragEnd)="markerDragEnd(m, $event)">
+                    <agm-info-window>
+                        <div class="location">
+                            <h3 class="txt-clr1" style="color:black">
+                                <small>{{this.empresa.denominacion}}</small>
+                            </h3>
+                        </div>
+                        <strong>InfoWindow content</strong>
+                    </agm-info-window>
+                </agm-marker>
+                <agm-circle [latitude]="lat + 0.3" [longitude]="lng" [radius]="5000" [fillColor]="'red'" [circleDraggable]="true" [editable]="true">
+                </agm-circle>
+            </agm-map>
+        </div>
         <address>
             <dl>
                 <dt>Telefono: </dt>
@@ -132,8 +124,9 @@
             </dl>
         </address>
     </section>
-    <div class="container">
-        <p class="rights">
+    <hr>
+    <div class="ml-3">
+        <p>
             {{this.empresa.denominacion}} <span id="copyright-year"></span>
             <a href="">Privacy Policy</a>
         </p>
