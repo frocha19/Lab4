@@ -16,7 +16,6 @@
     </div>
     <!--div id="stuck_container" class="stuck_container">
     <div class="container">
-
         <form class="search-form" action="search.php" method="GET" accept-charset="utf-8">
             <label class="search-form_label">
   <input class="search-form_input" type="text" name="s" autocomplete="off" placeholder="" />
@@ -24,9 +23,7 @@
 </label>
             <button class="search-form_submit fa-search" type="submit"></button>
         </form>
-
     </div>
-
 </div-->
     <section class="mt-5 ml-5 mr-5 mb-5">
         <div class="bd-example">
@@ -86,15 +83,25 @@
             </div>
         </div>
     </section>
-    <div class="container-fluid">
-        <h1 class="txt-pr">
-            Quienes Somos
-        </h1>
-        <div class="row">
-            <div class="col">
-                <p style="text-align:justify">
-                    {{this.empresa.denominacion}}
-                </p>
+    <div class="ml-5">
+        <div class="ml-5">
+            <div class="ml-5">
+                <div class="ml-5">
+                    <div class="ml-5">
+                        <div class="ml-5">
+                            <h1>
+                                Quienes Somos
+                            </h1>
+                            <div class="row">
+                                <div class="col">
+                                    <p>
+                                        {{this.empresa.denominacion}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -103,32 +110,36 @@
             Donde estamos
         </h2>
     </div>
-    <div class="map">
-        <div id="google-map" class="map_model" data-zoom="11"></div>
-        <ul class="map_locations">
-            <li data-x="-73.9874068" data-y="40.643180" data-basic="images/gmap_marker.png" data-active="images/gmap_marker_active.png">
-                <div class="location">
-                    <h3 class="txt-clr1" style="color:black">
-                        <small>{{this.empresa.denominacion}}</small>
-                    </h3>
-                    <address>
-                        <dl>
-                            <dt>Telefono: </dt>
-                            <dd class="phone" style="color:black"><a href="callto:#">{{this.empresa.telefono}}</a></dd>
-                        </dl>
-                        <dl>
-                            <dt>Domicilio: </dt>
-                            <dd style="color:black">{{this.empresa.domicilio}}</dd>
-                        </dl>
-                        <dl>
-                            <dt> E-mail: </dt>
-                            <dd style="color:black"><a href="mailto:#">{{this.empresa.email}}</a></dd>
-                        </dl>
-                    </address>
-                </div>
-            </li>
-        </ul>
-    </div>
+    <section class="ml-5 mr-5">
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false" (mapClick)="mapClicked($event)">
+            <agm-marker *ngFor="let m of markers; let i = index" (markerClick)="clickedMarker(m.label, i)" [latitude]="m.lat" [longitude]="m.lng" [label]="m.label" [markerDraggable]="m.draggable" (dragEnd)="markerDragEnd(m, $event)">
+                <agm-info-window>
+                    <div class="location">
+                        <h3 class="txt-clr1" style="color:black">
+                            <small>{{this.empresa.denominacion}}</small>
+                        </h3>
+                    </div>
+                    <strong>InfoWindow content</strong>
+                </agm-info-window>
+            </agm-marker>
+            <agm-circle [latitude]="lat + 0.3" [longitude]="lng" [radius]="5000" [fillColor]="'red'" [circleDraggable]="true" [editable]="true">
+            </agm-circle>
+        </agm-map>
+        <address>
+            <dl>
+                <dt>Telefono: </dt>
+                <dd class="phone" style="color:black"><a href="callto:#">{{this.empresa.telefono}}</a></dd>
+            </dl>
+            <dl>
+                <dt>Domicilio: </dt>
+                <dd style="color:black">{{this.empresa.domicilio}}</dd>
+            </dl>
+            <dl>
+                <dt> E-mail: </dt>
+                <dd style="color:black"><a href="mailto:#">{{this.empresa.email}}</a></dd>
+            </dl>
+        </address>
+    </section>
     <div class="container">
         <p class="rights">
             {{this.empresa.denominacion}} <span id="copyright-year"></span>
