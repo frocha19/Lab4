@@ -2,37 +2,37 @@
 <div class="col-12">
     <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">Titulo de la noticia</span>
+            <span class="input-group-text" id="basic-addon1">Titulo de la noticia</span>
         </div>
         <input type="text" class="form-control" placeholder="Titulo" aria-label="Titulo" aria-describedby="basic-addon1" [(ngModel)]="noticia.titulo_de_la_noticia">
-      </div>
-      <div class="input-group mb-3">
+    </div>
+    <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">Resumen</span>
+            <span class="input-group-text" id="basic-addon1">Resumen</span>
         </div>
         <input type="text" class="form-control" placeholder="Resumen" aria-label="Resumen" aria-describedby="basic-addon1" [(ngModel)]="noticia.resumen_de_la_noticia">
-      </div>
-      <div class="input-group mb-3">
+    </div>
+    <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">Imagen</span>
+            <span class="input-group-text" id="basic-addon1">Imagen</span>
         </div>
         <input type="text" class="form-control" placeholder="Imagen" aria-label="Imagen" aria-describedby="basic-addon1" [(ngModel)]="noticia.imagen_noticia">
-      </div>
-      <div class="input-group mb-3">
+    </div>
+    <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">Publicada: Y/N</span>
+            <span class="input-group-text" id="basic-addon1">Publicada: Y/N</span>
         </div>
         <input type="text" class="form-control" placeholder="Y/N" aria-label="Publicada" aria-describedby="basic-addon1" [(ngModel)]="noticia.publicada">
-      </div>
-      <div class="input-group mb-3">
+    </div>
+    <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">Fecha</span>
+            <span class="input-group-text" id="basic-addon1">Fecha</span>
         </div>
         <input type="text" class="form-control" placeholder="Fecha Publicación" aria-label="Fecha" aria-describedby="basic-addon1" [(ngModel)]="noticia.fecha_publicacion">
-      </div>
-      <div class="input-group mb-3">
+    </div>
+    <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">Empresa</span>
+            <span class="input-group-text" id="basic-addon1">Empresa</span>
         </div>
             <select name="Empresa" *ngFor="let i of empresas">
               <option value="{{i.id}}">{{i.denominacion}}</option>

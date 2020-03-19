@@ -1,14 +1,17 @@
-<div class="container top-sect" style="background-color: #62C8FE;">
-    <div>
+<section style="background-color: rgb(209, 240, 34);">
+    <div class="ml-5 mr-5" style="background-color: #62C8FE;">
         <h1>
-            <a href="./"><small>{{this.empresa.denominacion}}</small></a>
+            <a href="/home/{{this.empresa.id}}"><small>{{this.empresa.denominacion}}</small></a>
         </h1>
-        <a class="search-form_toggle" href="#"></a>
+        <!--a class="search-form_toggle" href="#"></a-->
+        <div class="help-box text-right">
+            <small>
+            <span>Telefono: </span><a href="callto:#">{{this.empresa.telefono}}</a>
+        </small>
+            <br>
+            <small>
+            <span>Horario:</span> {{this.empresa.horario_de_atencion}}
+        </small>
+        </div>
     </div>
-
-    <div class="help-box text-right">
-        <p>Telefono: <a href="callto:#">{{this.empresa.telefono}}</a></p>
-
-        <small><span>Horario:</span> {{this.empresa.horario_de_atencion}}</small>
-    </div>
-</div>
+</section>

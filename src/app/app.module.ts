@@ -17,6 +17,8 @@ import { EmpresaService } from './services/empresa.service';
 import { ElementonoticiaComponent } from './components/elementonoticia/elementonoticia.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
 
+import { ElementohomeComponent } from './components/elementohome/elementohome.component';
+import { ElementodetalleComponent } from './components/elementodetalle/elementodetalle.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { EditorModule } from '@tinymce/tinymce-angular';
     ModalempresaComponent,
     DetalleComponent,
     TablanoticiaComponent,
-    ElementonoticiaComponent
+    ElementonoticiaComponent,
+    ElementohomeComponent,
+    ElementodetalleComponent
   ],
   imports: [
     BrowserModule,
