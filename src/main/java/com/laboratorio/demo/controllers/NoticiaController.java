@@ -28,6 +28,16 @@ public class NoticiaController {
 		this.servicio = servicio;
 	}
 	
+	@GetMapping("/searchEmpresa/{id}")
+	@Transactional
+	public ResponseEntity getLast(@PathVariable("id") int id) {
+		try {
+			return ResponseEntity.status(HttpStatus.OK).body(servicio.getLast(id));
+		}catch(Exception e) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"message\":\"Ha ocurrido un error en el metodo getLast\"}");
+		}
+	}
+	
 	@GetMapping("/search/{nombre}")
 	@Transactional
 	public ResponseEntity buscarPorNombre(@PathVariable("nombre") String nombre) {

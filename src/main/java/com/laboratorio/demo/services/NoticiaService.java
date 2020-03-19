@@ -6,6 +6,8 @@ import java.util.Optional;
 
 import javax.transaction.Transactional;
 
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.laboratorio.demo.dtos.EmpresaDto;
@@ -25,6 +27,33 @@ public class NoticiaService {
 		this.repository = repository;
 		this.repositorio2 = repositorio2;
 		
+	}
+	
+	@Transactional 
+	public List<NoticiaDto> getLast(int id) throws Exception{
+		
+		Pageable firstPageWithFiveElements = PageRequest.of(0,5);
+		
+		try {
+			List<Noticia> entities = repository.buscarPorEmpresa(id, firstPageWithFiveElements);
+			
+			List<NoticiaDto> dtos = new ArrayList();
+			for(Noticia i:entities) {
+				NoticiaDto unDto = new NoticiaDto();
+				unDto.setId(i.getId());
+				unDto.setTitulo_de_la_noticia(i.getTitulo_de_la_noticia());
+				unDto.setResumen_de_la_noticia(i.getResumen_de_la_noticia());
+				unDto.setImagen_noticia(i.getImagen_noticia());
+				unDto.setContenido_html(i.getContenido_html());
+				unDto.setPublicada(i.getPublicada());
+				unDto.setFecha_publicacion(i.getFecha_publicacion());
+				unDto.setIdEmpresa(i.getIdEmpresa().getId());
+				dtos.add(unDto);
+			}
+			return dtos;
+		}catch(Exception e) {
+			throw new Exception();
+		}
 	}
 	
 	@Transactional
