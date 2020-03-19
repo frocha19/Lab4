@@ -48,58 +48,7 @@ export class HomeComponent implements OnInit {
       draggable: true
     }
   ];
-  public noticias: Noticia[] = [
-    {
-      id: 0,
-      titulo_de_la_noticia: 'Noticia 0',
-      resumen_de_la_noticia: 'Noticia 0',
-      imagen_noticia: 'Noticia 0',
-      contenido_html: 'NNoticia 0',
-      publicada: 'Noticia 0',
-      fecha_publicacion: new Date(),
-      idEmpresa: 1
-    },
-    {
-      id: 1,
-      titulo_de_la_noticia: 'Noticia 1',
-      resumen_de_la_noticia: 'Noticia 1',
-      imagen_noticia: 'Noticia 1',
-      contenido_html: 'NNoticia 1',
-      publicada: 'Noticia 1',
-      fecha_publicacion: new Date(),
-      idEmpresa: 1
-    },
-    {
-      id: 2,
-      titulo_de_la_noticia: 'Noticia 2',
-      resumen_de_la_noticia: 'Noticia 2',
-      imagen_noticia: 'Noticia 2',
-      contenido_html: 'NNoticia 2',
-      publicada: 'Noticia 2',
-      fecha_publicacion: new Date(),
-      idEmpresa: 1
-    },
-    {
-      id: 3,
-      titulo_de_la_noticia: 'Noticia 3',
-      resumen_de_la_noticia: 'Noticia 3',
-      imagen_noticia: 'Noticia 3',
-      contenido_html: 'NNoticia 3',
-      publicada: 'Noticia 3',
-      fecha_publicacion: new Date(),
-      idEmpresa: 1
-    },
-    {
-      id: 4,
-      titulo_de_la_noticia: 'Noticia 4',
-      resumen_de_la_noticia: 'Noticia 4',
-      imagen_noticia: 'Noticia 4',
-      contenido_html: 'NNoticia 4',
-      publicada: 'Noticia 4',
-      fecha_publicacion: new Date(),
-      idEmpresa: 1
-    }
-  ];
+  public noticias: Noticia[];
   public empresa: Empresa = {
     id: 0,
     denominacion: '',
@@ -124,12 +73,13 @@ export class HomeComponent implements OnInit {
       }
     );
   }
-  getFive() {
-    /*this.noticiaService.getFive(id).subscribe((data) => {
+  getFive(id: number) {
+    this.noticiaService.getLast(id).subscribe((data) => {
       this.noticias = data;
+      console.log(this.noticias[1].imagen_noticia);
     }, err => {
       alert('Error al traer los datos de noticia: getFive');
-    });*/
+    });
   }
   goNoticia(id: number) {
     this.route.navigate(['/detalle/' + id]);

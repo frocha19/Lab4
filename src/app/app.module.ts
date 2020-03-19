@@ -1,9 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { IndexComponent } from './components/index/index.component';
@@ -16,7 +14,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmpresaService } from './services/empresa.service';
 import { ElementonoticiaComponent } from './components/elementonoticia/elementonoticia.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
-
 import { ElementohomeComponent } from './components/elementohome/elementohome.component';
 import { ElementodetalleComponent } from './components/elementodetalle/elementodetalle.component';
 import { AgmCoreModule } from '@agm/core';
@@ -49,10 +46,10 @@ import { AgmCoreModule } from '@agm/core';
       apiKey: 'AIzaSyAFgM81Qz-SwfTzUsr4F51AgDj0HdN88CQ'
       // 'AIzaSyAvcDy5ZYc2ujCS6TTtI3RYX5QmuoV8Ffw'
       // 'AIzaSyAFgM81Qz-SwfTzUsr4F51AgDj0HdN88CQ'
+      // 'AIzaSyCYZlfwf32f8iqEveyFdeVLtkHBMxK9518'
     })
   ],
   providers: [EmpresaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-// API_Key=AIzaSyCYZlfwf32f8iqEveyFdeVLtkHBMxK9518

@@ -36,9 +36,10 @@ export abstract class CommonService<E> {
     alert(`Codigo de error: ${error.status}` + `\nMensaje: ${error.error}`);
     return throwError('Por favor, intente de nuevo.');
   }
-
   // Service Add
-  /*getLast(id: number): Observable<E> {
-    return this.http.getLast<E>(this.miUrl + id).pipe(catchError(this.handleError));
-  }*/
+  getLast(id: number): Observable<E[]> {
+    console.log(`${this.miUrl}searchEmpresa/${id}`);
+    return this.http.get<E[]>(`${this.miUrl}searchEmpresa/${id}`
+    ).pipe(catchError(this.handleError));
+  }
 }
