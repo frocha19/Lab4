@@ -76,7 +76,7 @@ export class HomeComponent implements OnInit {
   getFive(id: number) {
     this.noticiaService.getLast(id).subscribe((data) => {
       this.noticias = data;
-      console.log(this.noticias[1].imagen_noticia);
+      console.log(this.noticias);
     }, err => {
       alert('Error al traer los datos de noticia: getFive');
     });

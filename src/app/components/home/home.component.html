@@ -20,44 +20,40 @@
     <section class="mt-5 ml-5 mr-5 mb-5" align="center">
         <div class="bd-example">
             <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-                    <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
-                    <li data-target="#carouselExampleCaptions" data-slide-to="5"></li>
+                <ol class="carousel-indicators" *ngFor="let not of noticias">
+                    <li data-target="#carouselExampleCaptions" data-slide-to={not.id} class="active"></li>
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="https://cnnespanol2.files.wordpress.com/2019/12/s_64a163f16ecbb099e52f2f8271f73cbbfcfc9034be4d646f7375e4db1ca6f3d7_1573501883482_ap_19001106049831-1.jpg" class="d-block w-100" alt="First slice" (click)="goNoticia(this.noticias[0].id)">
+                        <img height="900px" width="800px" src="https://cnnespanol2.files.wordpress.com/2019/12/s_64a163f16ecbb099e52f2f8271f73cbbfcfc9034be4d646f7375e4db1ca6f3d7_1573501883482_ap_19001106049831-1.jpg" class="d-block w-100" alt="First slice" (click)="goNoticia(this.noticias[0].id)">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>{{this.noticias[0].titulo_de_la_noticia}}</h5>
                             <p>{{this.noticias[0].resumen_de_la_noticia}}</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="https://i.ytimg.com/vi/n_KrxgXrU4w/maxresdefault.jpg" class="d-block w-100" alt="Second slice" (click)="goNoticia(this.noticias[1].id)">
+                        <img height="900px" width="800px" src="z" class="d-block w-100" alt="Second slice" (click)="goNoticia(this.noticias[1].id)">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>{{this.noticias[1].titulo_de_la_noticia}}</h5>
                             <p>{{this.noticias[1].resumen_de_la_noticia}}</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="https://marcianosmx.com/wp-content/uploads/2013/08/minimoo64_fractals_01.jpg" class="d-block w-100" alt="Third slice" (click)="goNoticia(this.noticias[2].id)">
+                        <img height="900px" width="800px" src="https://marcianosmx.com/wp-content/uploads/2013/08/minimoo64_fractals_01.jpg" class="d-block w-100" alt="Third slice" (click)="goNoticia(this.noticias[2].id)">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>{{this.noticias[2].titulo_de_la_noticia}}</h5>
                             <p>{{this.noticias[2].resumen_de_la_noticia}}</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="https://cnnespanol2.files.wordpress.com/2019/12/mejores-imagenes-del-ancc83o-noticias-2019-galeria10.jpg" class="d-block w-100" alt="Four slice" (click)="goNoticia(this.noticias[3].id)">
+                        <img height="900px" width="800px" src="https://cnnespanol2.files.wordpress.com/2019/12/mejores-imagenes-del-ancc83o-noticias-2019-galeria10.jpg" class="d-block w-100" alt="Four slice" (click)="goNoticia(this.noticias[3].id)">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>{{this.noticias[3].titulo_de_la_noticia}}</h5>
                             <p>{{this.noticias[3].resumen_de_la_noticia}}</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="https://cdn.pixabay.com/photo/2020/03/15/09/56/rest-4933097__340.jpg" class="d-block w-100" alt="Five slice" (click)="goNoticia(this.noticias[4].id)">
+                        <img height="900px" width="800px" src="https://cdn.pixabay.com/photo/2020/03/15/09/56/rest-4933097__340.jpg" class="d-block w-100" alt="Five slice" (click)="goNoticia(this.noticias[4].id)">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>{{this.noticias[4].titulo_de_la_noticia}}</h5>
                             <p>{{this.noticias[4].resumen_de_la_noticia}}</p>
