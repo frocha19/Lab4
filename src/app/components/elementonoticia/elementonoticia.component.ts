@@ -1,8 +1,9 @@
+import { EmpresaService } from './../../services/empresa.service';
+import { Empresa } from './../../model/empresa';
 import { NoticiaService } from './../../services/noticia.service';
 import { Component, OnInit } from '@angular/core';
 import { Noticia } from 'src/app/model/noticia';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Empresa } from 'src/app/model/empresa';
 
 @Component({
   selector: 'app-elementonoticia',
@@ -12,6 +13,17 @@ import { Empresa } from 'src/app/model/empresa';
 export class ElementonoticiaComponent implements OnInit {
 
   public empresas: Empresa[];
+
+  public empresa : Empresa = {
+    denominacion: '',
+    telefono: '',
+    horario_de_atencion: '',
+    quienes_somos: '',
+    latitud: null,
+    longitud: null,
+    domicilio: '',
+    email: ''
+  }
 
   noticia: Noticia = {
     id: 0,
@@ -24,7 +36,8 @@ export class ElementonoticiaComponent implements OnInit {
     idEmpresa: null
   }
 
-  constructor(private noticiaService: NoticiaService, private router: Router, private actRoute: ActivatedRoute) {
+  constructor(private noticiaService: NoticiaService, private router: Router, 
+    private actRoute: ActivatedRoute, private empresaService: EmpresaService) {
     this.actRoute.params.subscribe((data) => {
       if (data['id'] !== "nueva") {
         this.getOne(data['id']);
@@ -33,6 +46,7 @@ export class ElementonoticiaComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getAllEmpresas();
   }
 
   save() {
@@ -75,6 +89,15 @@ export class ElementonoticiaComponent implements OnInit {
     }, err => {
       alert('Error al traer los datos de noticia: getOne');
     })
+  }
+
+  getAllEmpresas() {
+    this.empresaService.getAll().subscribe( res => {
+      this.empresas = res;
+    },
+    err => {
+      alert ('Error al traer todas las empresas para vincular la noticia: ' + err);
+    });
   }
 
 }
