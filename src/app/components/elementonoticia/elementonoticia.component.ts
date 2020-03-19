@@ -14,8 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ElementonoticiaComponent implements OnInit {
 
   public empresas: Empresa[];
-  public respuestaImagenEnviada;
-  public resultadoCarga;
+  
   noticia: Noticia = {
     id: 0,
     titulo_de_la_noticia: '',
@@ -26,10 +25,9 @@ export class ElementonoticiaComponent implements OnInit {
     fecha_publicacion: null,
     idEmpresa: null
   }
-  miUrl = 'http://localhost:9000/api/v1/noticia/';
 
   constructor(private noticiaService: NoticiaService, private router: Router,
-    private actRoute: ActivatedRoute, private empresaService: EmpresaService, private http: HttpClient) {
+    private actRoute: ActivatedRoute, private empresaService: EmpresaService) {
     this.actRoute.params.subscribe((data) => {
       if (data['id'] !== "nueva") {
         this.getOne(data['id']);

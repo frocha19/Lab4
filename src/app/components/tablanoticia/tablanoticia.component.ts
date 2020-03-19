@@ -1,7 +1,9 @@
+import { EmpresaService } from './../../services/empresa.service';
 import { Router } from '@angular/router';
 import { NoticiaService } from '../../services/noticia.service';
 import { Noticia } from './../../model/noticia';
 import { Component, OnInit } from '@angular/core';
+import { Empresa } from 'src/app/model/empresa';
 
 @Component({
   selector: 'app-tablanoticia',
@@ -12,6 +14,8 @@ export class TablanoticiaComponent implements OnInit {
 
   public noticias: Noticia[];
 
+  empresas: Empresa[];
+
   public noticia: Noticia = {
     id: 0,
     titulo_de_la_noticia: '',
@@ -21,13 +25,22 @@ export class TablanoticiaComponent implements OnInit {
     publicada: '',
     fecha_publicacion: null,
     idEmpresa: null
-
   };
 
-  constructor(private noticiaService: NoticiaService, private router: Router) { }
+  constructor(private noticiaService: NoticiaService, private router: Router, private empresaService : EmpresaService) { }
 
   ngOnInit() {
     this.getAllNoticias();
+    this.getAllEmpresas();
+  }
+
+  getAllEmpresas() {
+    this.empresaService.getAll().subscribe( res => {
+      this.empresas = res;
+    },
+    err => {
+      alert ('Error al traer todas las empresas: ' + err);
+    });
   }
 
   getAllNoticias() {
@@ -45,8 +58,8 @@ export class TablanoticiaComponent implements OnInit {
       this.noticiaService.delete(noticia.id).subscribe(
         res => {
           alert('El registro fue eliminado con éxito');
-          const indexEmpresa = this.noticias.indexOf(noticia);
-          this.noticias.splice(indexEmpresa, 1);
+          const indexNoticia = this.noticias.indexOf(noticia);
+          this.noticias.splice(indexNoticia, 1);
         },
         err => {
           alert ('Error al eliminar el registro seleccionado: ' + err);
