@@ -6,7 +6,7 @@ import { TablanoticiaComponent } from './components/tablanoticia/tablanoticia.co
 import { TablaempresaComponent } from './components/tablaempresa/tablaempresa.component';
 import { ElementohomeComponent } from './components/elementohome/elementohome.component';
 import { ElementodetalleComponent } from './components/elementodetalle/elementodetalle.component';
-// import { 404Component } from './components/404/404.component';
+import { Page404Component } from './components/page404/page404.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'tabla/empresa', component: TablaempresaComponent},
   { path: 'tabla/noticia', component: TablanoticiaComponent},
   { path: 'noticia/:id', component: ElementonoticiaComponent},
-  // { path: '**', component: 404Component}
+  { path: '**', component: Page404Component}
 ];
 
 @NgModule({

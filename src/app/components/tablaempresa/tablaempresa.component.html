@@ -1,19 +1,17 @@
-<section>
-    <div class="container mt-5">
-        <div class="row mb-4">
+<section class="secti">
+    <div class="divi">
+        <div class="row">
             <div class="col-xs-12 col-sm-8 col-md-10">
-                <h2>Gestión de Empresas</h2>
+                <h1>Gestión de Empresas</h1>
             </div>
             <div class=" col-xs-12 col-sm-4 col-md-2">
                 <button type="button" class="btn btn-primary float-right ml-3 btn-block" data-toggle="modal" data-target="#modalEmpresa">+ Agregar</button>
             </div>
-
         </div>
-        <div class="row">
-            <div class="col-12">
+        <div class="row mt-2">
+            <div class="col">
                 <table class="table">
-
-                    <thead>
+                    <thead class="thead-dark" align="center">
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Denominación</th>
@@ -24,10 +22,10 @@
                             <th scope="col">Longitud</th>
                             <th scope="col">Domicilio</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Acciones</th>
+                            <th scope="col" COLSPAN="2">Acciones</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody align="center">
                         <tr *ngFor="let i of empresas">
                             <th scope="row">{{i.id}}</th>
                             <td>{{i.denominacion}}</td>
@@ -38,10 +36,8 @@
                             <td>{{i.longitud}}</td>
                             <td>{{i.domicilio}}</td>
                             <td>{{i.email}}</td>
-                            <td>
-                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalEmpresa" (click)="onPreUpdate(i)">Actualizar</button>
-                            </td>
-                            <td>
+                            <td class="tdi ml-5" ROWSPAN="2">
+                                <button type="button" class="btn btn-success mr-3" data-toggle="modal" data-target="#modalEmpresa" (click)="onPreUpdate(i)">Actualizar</button>
                                 <button type="button" class="btn btn-danger" (click)="delete(i)">Eliminar</button>
                             </td>
                         </tr>

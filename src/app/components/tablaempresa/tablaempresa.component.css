@@ -1,5 +1,22 @@
-table{
+table {
     table-layout: fixed;
     word-wrap: break-word;
     width: 100%;
+}
+
+.divi {
+    height: 85%;
+    width: 85%;
+    margin-top: 5%;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.tdi {
+    display: flex;
+    width: 100%;
+}
+
+.table {
+    background-color: white;
 }
