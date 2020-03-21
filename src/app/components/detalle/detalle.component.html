@@ -1,37 +1,37 @@
-<section style="background-color: rgb(179, 214, 23);">
-    <div class="ml-5 mr-5" style="background-color: #62C8FE;">
+<section>
+    <div class="navbar mt-5 ml-5 mr-5">
         <h1 class="ml-4">
-            <a href="/home/{{this.empresa.id}}"><small>{{this.empresa.denominacion}}</small></a>
+            <a href="/home/{{this.empresa.id}}" style="color:white"><small>{{this.empresa.denominacion}}</small></a>
         </h1>
         <div class="help-box text-right mr-3">
             <small>
-            <span>Telefono</span>
+            <span style="color:white">Telefono</span>
             <br>
             <h2><a href="callto:#">{{this.empresa.telefono}}</a></h2>
         </small>
             <br>
             <small>
-            <span>Horario</span>
+            <span style="color:white">Horario</span>
             <br>
-            <h2>{{this.empresa.horario_de_atencion}}</h2>
+            <h2 style="color:gray">{{this.empresa.horario_de_atencion}}</h2>
         </small>
         </div>
     </div>
-
-    <div class="ml-5 mr-5" id="imagenPrincipal" style="height: 1000px; background-image: url({{this.noticia.imagen_noticia}}); background-repeat: no-repeat;background-size: cover;" align="center">
-        <div style="text-align:left; background-color: rgba(1,1,1,0.5);color: #ffffff;font-size: 16px;line-height: 50px;">
-            {{this.noticia.titulo_de_la_noticia}}
+    <section class="mt-5 ml-5 mr-5">
+        <div id="imagenPrincipal" style="height: 1000px; background-image: url({{this.noticia.imagen_noticia}}); background-repeat: no-repeat;background-size: cover;" align="center">
+            <div style="text-align:left; background-color: rgba(1,1,1,0.5);color: #ffffff;font-size: 16px;line-height: 50px;">
+                {{this.noticia.titulo_de_la_noticia}}
+            </div>
         </div>
-    </div>
-
-    <div class="ml-5">
-        <h1>{{this.noticia.titulo_de_la_noticia}}</h1>
-        <h6>Fecha de Publicacion: {{this.noticia.fecha_publicacion}}</h6>
-        <hr>
-        <h6>{{this.noticia.resumen_de_la_noticia}}</h6>
-        <hr>
-        <h6>{{this.noticia.contenido_html}}</h6>
-    </div>
+        <div>
+            <h1>{{this.noticia.titulo_de_la_noticia}}</h1>
+            <h6>Fecha de Publicacion: {{this.noticia.fecha_publicacion}}</h6>
+            <hr>
+            <h6>{{this.noticia.resumen_de_la_noticia}}</h6>
+            <hr>
+            <h6>{{this.noticia.contenido_html}}</h6>
+        </div>
+    </section>
     <hr>
     <div class="ml-3">
         <p>

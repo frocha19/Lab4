@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { NoticiaService } from '../../services/noticia.service';
 import { Noticia } from './../../model/noticia';
 import { Component, OnInit } from '@angular/core';
-import { Empresa } from 'src/app/model/empresa';
+import { dashCaseToCamelCase } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-tablanoticia',
@@ -13,9 +13,6 @@ import { Empresa } from 'src/app/model/empresa';
 export class TablanoticiaComponent implements OnInit {
 
   public noticias: Noticia[];
-
-  empresas: Empresa[];
-
   public noticia: Noticia = {
     id: 0,
     titulo_de_la_noticia: '',
@@ -27,20 +24,10 @@ export class TablanoticiaComponent implements OnInit {
     idEmpresa: null
   };
 
-  constructor(private noticiaService: NoticiaService, private router: Router, private empresaService : EmpresaService) { }
+  constructor(private noticiaService: NoticiaService, private router: Router, private empresaService: EmpresaService) { }
 
   ngOnInit() {
     this.getAllNoticias();
-    this.getAllEmpresas();
-  }
-
-  getAllEmpresas() {
-    this.empresaService.getAll().subscribe( res => {
-      this.empresas = res;
-    },
-    err => {
-      alert ('Error al traer todas las empresas: ' + err);
-    });
   }
 
   getAllNoticias() {
@@ -67,12 +54,11 @@ export class TablanoticiaComponent implements OnInit {
       }
     }
 
-  agregar(){
-    this.router.navigate(["noticia/nueva"]);
+  agregar() {
+    this.router.navigate(['noticia/nueva']);
   }
 
-  update(id:number){
-    this.router.navigate(["noticia/"+id]);
+  update(id: number) {
+    this.router.navigate(['noticia/' + id]);
   }
-
 }
