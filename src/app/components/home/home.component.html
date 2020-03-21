@@ -89,20 +89,7 @@
     </div>
     <section class="ml-5 mr-5">
         <div align="center">
-            <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false" (mapClick)="mapClicked($event)">
-                <agm-marker *ngFor="let m of markers; let i = index" (markerClick)="clickedMarker(m.label, i)" [latitude]="m.lat" [longitude]="m.lng" [label]="m.label" [markerDraggable]="m.draggable" (dragEnd)="markerDragEnd(m, $event)">
-                    <agm-info-window>
-                        <div class="location">
-                            <h3 class="txt-clr1" style="color:black">
-                                <small>{{this.empresa.denominacion}}</small>
-                            </h3>
-                        </div>
-                        <strong>InfoWindow content</strong>
-                    </agm-info-window>
-                </agm-marker>
-                <agm-circle [latitude]="lat + 0.3" [longitude]="lng" [radius]="5000" [fillColor]="'red'" [circleDraggable]="true" [editable]="true">
-                </agm-circle>
-            </agm-map>
+            <!--Aqui debe ir el mapa-->
         </div>
         <address>
             <dl>

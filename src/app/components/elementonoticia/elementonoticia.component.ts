@@ -15,7 +15,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 export class ElementonoticiaComponent implements OnInit {
 
   public empresas: Empresa[];
-  _url = "http://localhost:9000/api/v1/noticia/upload";
+  _url = 'http://localhost:9000/api/v1/noticia/upload';
   uploadForm: FormGroup;
 
   noticia: Noticia = {
@@ -27,16 +27,16 @@ export class ElementonoticiaComponent implements OnInit {
     publicada: '',
     fecha_publicacion: null,
     idEmpresa: null
-  }
+  };
 
   constructor(private noticiaService: NoticiaService, private router: Router,
-    private actRoute: ActivatedRoute, private empresaService: EmpresaService,
-    private formBuilder: FormBuilder, private http: HttpClient) {
-    this.actRoute.params.subscribe((data) => {
-      if (data['id'] !== "nueva") {
+              private actRoute: ActivatedRoute, private empresaService: EmpresaService,
+              private formBuilder: FormBuilder, private http: HttpClient) {
+      this.actRoute.params.subscribe((data) => {
+      if (data['id'] !== 'nueva') {
         this.getOne(data['id']);
       }
-    })
+    });
   }
 
   ngOnInit() {
@@ -48,19 +48,19 @@ export class ElementonoticiaComponent implements OnInit {
 
   save() {
     this.actRoute.params.subscribe((data) => {
-      if (data['id'] === "nueva") {
+      if (data['id'] === 'nueva') {
         this.add();
       } else {
         this.update(data['id']);
       }
-    })
+    });
   }
 
   add() {
     this.noticiaService.post(this.noticia).subscribe(
       res => {
         alert('Noticia agregada correctamente');
-        this.router.navigate(["tabla/noticia"]);
+        this.router.navigate(['tabla/noticia']);
       },
       err => {
         alert('Ocurrió un error al agregar la noticia. Verifique los campos.');
@@ -72,7 +72,7 @@ export class ElementonoticiaComponent implements OnInit {
     this.noticiaService.put(id, this.noticia).subscribe(
       res => {
         alert('La noticia fue actualizada con éxito');
-        this.router.navigate(["tabla/noticia"]);
+        this.router.navigate(['tabla/noticia']);
       },
       err => {
         alert('Ocurrió un error al actualizar noticia. Verifique los campos.');
@@ -85,7 +85,7 @@ export class ElementonoticiaComponent implements OnInit {
       this.noticia = data;
     }, err => {
       alert('Error al traer los datos de noticia: getOne');
-    })
+    });
   }
 
   getAllEmpresas() {
