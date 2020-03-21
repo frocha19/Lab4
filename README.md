@@ -11,15 +11,11 @@
 
     # 3 Tomando como bases las plantillas HTML index.html, home.html, detalle.html, búsqueda.html, modifique las plantillas para que tomen la información de las tablas empresa y noticia según corresponda.
 
-## Tareas a Realizar en el BackEnd
-	# 1 Crear la Base de Datos de manera local para Empresa y Noticia.
-	# 2 Hacer Api Rest para Empresa y Noticia.
-	
-## Tareas a Realizar en el FrontEnd
-	# 1 Crear los Models para Empresa y Noticia.
-	# 2 Crear los Servicios para Emprea y Noticia. Estos deben contener consulta SQL para recuperar datos.
-	# 3 Crear las Paginas Html para Index, Home, Detalle, Busqueda y Error404. Estas paginas deben ser Reactivas.
-	# 4 Configurar las rutas para acceder a dichas paginas.
-	# 5 La pagina de Noticia debe poder cargar una imagen.
-	# 6 
+## Importaciones Necesarias
+	- AutoComplete: npm i angular-ng-autocomplete
+	- Carousel: npm i @bit/valor-software.ngx-bootstrap.carousel
+	- TinyMCE: npm install --save @tinymce/tinymce-angular
+	- Jquery, Pooper y Bootstrap: npm install --save jquery popper.js bootstrap
+	-
+	-
 	
