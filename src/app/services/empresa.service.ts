@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CommonService } from './common.service';
 import { Empresa } from '../model/empresa';
-
 @Injectable({
   providedIn: 'root'
 })

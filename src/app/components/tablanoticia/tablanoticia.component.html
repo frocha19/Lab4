@@ -11,7 +11,7 @@
         <div class="row mt-2">
             <div class="col">
                 <table class="table">
-                    <thead class="thead-dark" align="center">
+                    <thead class="thead-dark">
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Título</th>
@@ -21,11 +21,10 @@
                             <th scope="col">Publicada</th>
                             <th scope="col">Fecha</th>
                             <th scope="col">Empresa</th>
-                            <th scope="col">Denominacion</th>
-                            <th scope="col" COLSPAN="1">Acciones</th>
+                            <th scope="col">Acciones</th>
                         </tr>
                     </thead>
-                    <tbody align="center">
+                    <tbody>
                         <tr *ngFor="let i of noticias">
                             <th scope="row">{{i.id}}</th>
                             <td>{{i.titulo_de_la_noticia}}</td>
@@ -35,9 +34,9 @@
                             <td>{{i.publicada}}</td>
                             <td>{{i.fecha_publicacion}}</td>
                             <td *ngFor="let k of empresas">{{k.denominacion}}</td>
-                            <td class="tdi">
-                                <button type="button" class="btn btn-success mr-3" (click)="update(i.id)">Actualizar</button>
-                                <button type="button" class="btn btn-danger" (click)="delete(i)">Eliminar</button>
+                            <td>
+                                <button type="button" class="btn btn-warning" (click)="update(i.id)">Update</button>
+                                <button type="button" class="btn btn-danger" (click)="delete(i)">Delete</button>
                             </td>
                         </tr>
                     </tbody>

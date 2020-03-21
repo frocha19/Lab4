@@ -32,12 +32,12 @@ export class TablaempresaComponent implements OnInit {
   }
 
   getAllEmpresas() {
-    this.empresaService.getAll().subscribe( res => {
+    this.empresaService.getAll().subscribe(res => {
       this.empresas = res;
     },
-    err => {
-      alert ('Error al traer todas las empresas: ' + err);
-    });
+      err => {
+        alert('Error al traer todas las empresas: ' + err);
+      });
   }
 
   delete(empresa: Empresa) {
@@ -50,10 +50,10 @@ export class TablaempresaComponent implements OnInit {
           this.empresas.splice(indexEmpresa, 1);
         },
         err => {
-          alert ('Error al eliminar el registro seleccionado: ' + err);
+          alert('Error al eliminar el registro seleccionado: ' + err);
         });
-      }
     }
+  }
 
   onPreUpdate(empresa: Empresa) {
     this.empresaSeleccionada = empresa;

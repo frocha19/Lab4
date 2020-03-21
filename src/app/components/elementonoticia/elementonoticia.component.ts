@@ -5,6 +5,7 @@ import { NoticiaService } from './../../services/noticia.service';
 import { Component, OnInit } from '@angular/core';
 import { Noticia } from 'src/app/model/noticia';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-elementonoticia',
@@ -14,7 +15,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ElementonoticiaComponent implements OnInit {
 
   public empresas: Empresa[];
-  
+  _url = "http://localhost:9000/api/v1/noticia/upload";
+  uploadForm: FormGroup;
+
   noticia: Noticia = {
     id: 0,
     titulo_de_la_noticia: '',
@@ -27,7 +30,8 @@ export class ElementonoticiaComponent implements OnInit {
   }
 
   constructor(private noticiaService: NoticiaService, private router: Router,
-    private actRoute: ActivatedRoute, private empresaService: EmpresaService) {
+    private actRoute: ActivatedRoute, private empresaService: EmpresaService,
+    private formBuilder: FormBuilder, private http: HttpClient) {
     this.actRoute.params.subscribe((data) => {
       if (data['id'] !== "nueva") {
         this.getOne(data['id']);
@@ -37,6 +41,9 @@ export class ElementonoticiaComponent implements OnInit {
 
   ngOnInit() {
     this.getAllEmpresas();
+    this.uploadForm = this.formBuilder.group({
+      file: ['']
+    });
   }
 
   save() {
@@ -88,6 +95,22 @@ export class ElementonoticiaComponent implements OnInit {
       err => {
         alert('Error al traer todas las empresas para vincular la noticia: ' + err);
       });
+  }
+
+  onFileSelect(event) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.uploadForm.get('file').setValue(file);
+    }
+  }
+
+  onSubmit() {
+    const formData = new FormData();
+    formData.append('file', this.uploadForm.get('file').value);
+    this.http.post<any>(this._url, formData).subscribe(
+      res => console.log(res),
+      err => console.log(err)
+    );
   }
 
 }
