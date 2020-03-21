@@ -12,3 +12,16 @@
     border-radius: 2%;
     background-size: 100% auto;
 }
+
+.divi {
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+.container {
+    width: 900px;
+    height: 40px;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 1em;
+}

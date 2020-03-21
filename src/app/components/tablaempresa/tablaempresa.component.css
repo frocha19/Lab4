@@ -1,7 +1,8 @@
-table {
+.table {
     table-layout: fixed;
     word-wrap: break-word;
     width: 100%;
+    background-color: white;
 }
 
 .divi {
@@ -15,8 +16,4 @@ table {
 .tdi {
     display: flex;
     width: 100%;
-}
-
-.table {
-    background-color: white;
 }

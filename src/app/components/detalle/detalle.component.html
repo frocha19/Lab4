@@ -17,6 +17,26 @@
         </small>
         </div>
     </div>
+    <div class="container">
+        <h6 class="mt-2">Buscar por:</h6>
+        <select [(ngModel)]="keyword">
+            <option value="titulo_de_la_noticia"  selected>Titulo de la Noticia</option>
+            <option value="resumen_de_la_noticia">Resumen</option>
+        </select>
+        <div class="ng-autocomplete">
+            <ng-autocomplete [data]="data" [searchKeyword]="keyword" (selected)='selectEvent($event)' [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate">
+            </ng-autocomplete>
+            <ng-template #itemTemplate let-item>
+                <a [innerHTML]="item.titulo_de_la_noticia"></a>
+            </ng-template>
+            <ng-template #itemTemplate let-item>
+                <a [innerHTML]="item.resumen_de_la_noticia"></a>
+            </ng-template>
+            <ng-template #notFoundTemplate let-notFound>
+                <div [innerHTML]="notFound"></div>
+            </ng-template>
+        </div>
+    </div>
     <section class="mt-5 ml-5 mr-5">
         <div id="imagenPrincipal" style="height: 1000px; background-image: url({{this.noticia.imagen_noticia}}); background-repeat: no-repeat;background-size: cover;" align="center">
             <div style="text-align:left; background-color: rgba(1,1,1,0.5);color: #ffffff;font-size: 16px;line-height: 50px;">

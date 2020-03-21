@@ -38,9 +38,6 @@ export abstract class CommonService<E> {
   }
   // Service Add
   getLast(id: number): Observable<E[]> {
-    console.warn(this.miUrl + 'searchEmpresa/' + id);
-    console.error(this.miUrl + 'searchEmpresa/' + id);
-    console.log(this.miUrl + 'searchEmpresa/' + id);
     return this.http.get<E[]>(this.miUrl + 'searchEmpresa/' + id
     ).pipe(catchError(this.handleError));
   }

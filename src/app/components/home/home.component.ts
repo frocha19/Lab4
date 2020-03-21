@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
       }
     });
   }
+
   public noticias: Noticia[];
   public empresa: Empresa = {
     id: 0,
@@ -35,8 +36,12 @@ export class HomeComponent implements OnInit {
     domicilio: '',
     email: ''
   };
+  public keyword = '';
+  public data: Noticia[];
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getNoticias();
+  }
 
   getOne(id: number) {
     this.empresaService.getOne(id).subscribe(
@@ -58,5 +63,14 @@ export class HomeComponent implements OnInit {
   }
   goNoticia(id: number) {
     this.route.navigate(['/detalle/' + id]);
+  }
+  getNoticias() {
+    this.noticiaService.getAll().subscribe((dato) => {
+      this.data = dato;
+      console.log(this.data);
+    });
+  }
+  selectEvent(item) {
+    this.goNoticia(item.id);
   }
 }

@@ -1,5 +1,5 @@
 import { EmpresaService } from './../../services/empresa.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Noticia } from '../../model/noticia';
 import { NoticiaService } from '../../services/noticia.service';
@@ -33,13 +33,19 @@ export class DetalleComponent implements OnInit {
     domicilio: '',
     email: ''
   };
+  public keyword = '';
+  public data: Noticia[];
 
-  constructor(private actRoute: ActivatedRoute, private noticiaServicio: NoticiaService, private empresaServicio: EmpresaService) {
-    this.actRoute.params.subscribe((data) => {
-      if (data['id']) {
-        this.getOne(data['id']);
-      }
-    });
+  constructor(
+    private route: Router,
+    private actRoute: ActivatedRoute,
+    private noticiaServicio: NoticiaService,
+    private empresaServicio: EmpresaService) {
+      this.actRoute.params.subscribe((data) => {
+        if (data['id']) {
+          this.getOne(data['id']);
+        }
+      });
   }
 
   ngOnInit(): void {
@@ -52,5 +58,17 @@ export class DetalleComponent implements OnInit {
         this.empresa = dato;
       });
     });
+  }
+  goNoticia(id: number) {
+    this.route.navigate(['/detalle/' + id]);
+  }
+  getNoticias() {
+    this.noticiaServicio.getAll().subscribe((dato) => {
+      this.data = dato;
+      console.log(this.data);
+    });
+  }
+  selectEvent(item) {
+    this.goNoticia(item.id);
   }
 }

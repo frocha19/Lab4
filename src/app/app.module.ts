@@ -40,7 +40,6 @@ import { AutocompleteLibModule } from 'angular-ng-autocomplete';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    FormsModule,
     EditorModule,
     AutocompleteLibModule
   ],
