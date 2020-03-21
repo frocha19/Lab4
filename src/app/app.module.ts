@@ -17,6 +17,7 @@ import { EditorModule } from '@tinymce/tinymce-angular';
 import { ElementohomeComponent } from './components/elementohome/elementohome.component';
 import { ElementodetalleComponent } from './components/elementodetalle/elementodetalle.component';
 import { Page404Component } from './components/page404/page404.component';
+import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,8 @@ import { Page404Component } from './components/page404/page404.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     FormsModule,
-    EditorModule
+    EditorModule,
+    AutocompleteLibModule
   ],
   providers: [EmpresaService],
   bootstrap: [AppComponent]

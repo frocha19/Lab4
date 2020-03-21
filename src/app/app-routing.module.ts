@@ -10,11 +10,11 @@ import { Page404Component } from './components/page404/page404.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
-  { path: 'home/:id', component: ElementohomeComponent},
-  { path: 'detalle/:id', component: ElementodetalleComponent},
   { path: 'tabla/empresa', component: TablaempresaComponent},
   { path: 'tabla/noticia', component: TablanoticiaComponent},
+  { path: 'detalle/:id', component: ElementodetalleComponent},
   { path: 'noticia/:id', component: ElementonoticiaComponent},
+  { path: 'home/:id', component: ElementohomeComponent},
   { path: '**', component: Page404Component}
 ];
 
