@@ -18,6 +18,7 @@ import { ElementohomeComponent } from './components/elementohome/elementohome.co
 import { ElementodetalleComponent } from './components/elementodetalle/elementodetalle.component';
 import { Page404Component } from './components/page404/page404.component';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
+import { BuscadorComponent } from './components/buscador/buscador.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { AutocompleteLibModule } from 'angular-ng-autocomplete';
     ElementonoticiaComponent,
     ElementohomeComponent,
     ElementodetalleComponent,
-    Page404Component
+    Page404Component,
+    BuscadorComponent
   ],
   imports: [
     BrowserModule,

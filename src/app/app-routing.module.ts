@@ -1,3 +1,4 @@
+import { BuscadorComponent } from './components/buscador/buscador.component';
 import { ElementonoticiaComponent } from './components/elementonoticia/elementonoticia.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'detalle/:id', component: ElementodetalleComponent},
   { path: 'noticia/:id', component: ElementonoticiaComponent},
   { path: 'home/:id', component: ElementohomeComponent},
+  { path: 'buscador', component: BuscadorComponent},
   { path: '**', component: Page404Component}
 ];
 
