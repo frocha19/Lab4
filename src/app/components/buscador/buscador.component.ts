@@ -14,22 +14,21 @@ export class BuscadorComponent implements OnInit {
     private route: Router,
     private noticiaService: NoticiaService) { }
 
-  public keyword = '';
-  public data: Noticia[];
+  public textoBuscado = '';
+  public noticias: Noticia[];
 
   ngOnInit(): void {
-    this.getNoticias();
   }
-
   goNoticia(id: number) {
     this.route.navigate(['/detalle/' + id]);
   }
   getNoticias() {
-    this.noticiaService.getAll().subscribe((dato) => {
-      this.data = dato;
+    this.noticias = null;
+    this.noticiaService.buscarPorNombre(this.textoBuscado).subscribe((dato) => {
+      dato.forEach(n => {
+        n.resumen_de_la_noticia = n.resumen_de_la_noticia.substring(0, 40).concat('...');
+      });
+      this.noticias = dato;
     });
-  }
-  selectEvent(item) {
-    this.goNoticia(item.id);
   }
 }

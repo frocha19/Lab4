@@ -1,20 +1,39 @@
 <div class="container">
-    <h6 class="mt-2">Buscar por:</h6>
-    <select [(ngModel)]="keyword">
-        <option value="titulo_de_la_noticia"  selected>Titulo de la Noticia</option>
-        <option value="resumen_de_la_noticia">Resumen</option>
-    </select>
-    <div class="ng-autocomplete">
-        <ng-autocomplete [data]="data" [searchKeyword]="keyword" (selected)='selectEvent($event)' [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate">
-        </ng-autocomplete>
-        <ng-template #itemTemplate let-item>
-            <a [innerHTML]="item.titulo_de_la_noticia"></a>
-        </ng-template>
-        <ng-template #itemTemplate let-item>
-            <a [innerHTML]="item.resumen_de_la_noticia"></a>
-        </ng-template>
-        <ng-template #notFoundTemplate let-notFound>
-            <div [innerHTML]="notFound"></div>
-        </ng-template>
+    <div align="center">
+        <h1>Buscador de Noticias</h1>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <input type="text" placeholder="Search..." class="form-control" name="textoBuscado" [(ngModel)]="this.textoBuscado">
+                    <button class="btn btn-primary" type="submit" (click)="getNoticias()">Buscar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+    </mat-paginator>
+    <div class="row">
+        <div class="col">
+            <table class="table table-info">
+                <thead>
+                    <tr>
+                        <th>Texto Buscado: {{this.textoBuscado}}</th>
+                        <th>                                                                          </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let noticia of noticias">
+                        <!--tr *ngFor="let post of posts | filter:filterPost"></tr-->
+                        <td><img class="ml-5" width="200px" height="100px" src="{{noticia.imagen_noticia}}" alt="Imagen de la Noticia" (click)="goNoticia(noticia.id)"></td>
+                        <td>{{noticia.titulo_de_la_noticia}}
+                            <br> {{noticia.resumen_de_la_noticia}}
+                            <br> {{noticia.fecha_publicacion}}
+                            <br>
+                            <a href="/detalle/{{noticia.id}}">Leer Mas</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>

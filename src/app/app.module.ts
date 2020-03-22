@@ -19,6 +19,8 @@ import { ElementodetalleComponent } from './components/elementodetalle/elementod
 import { Page404Component } from './components/page404/page404.component';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { BuscadorComponent } from './components/buscador/buscador.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +45,8 @@ import { BuscadorComponent } from './components/buscador/buscador.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     EditorModule,
-    AutocompleteLibModule
+    AutocompleteLibModule,
+    MatPaginatorModule
   ],
   providers: [EmpresaService],
   bootstrap: [AppComponent]

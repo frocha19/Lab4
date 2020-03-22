@@ -41,4 +41,8 @@ export abstract class CommonService<E> {
     return this.http.get<E[]>(this.miUrl + 'searchEmpresa/' + id
     ).pipe(catchError(this.handleError));
   }
+  buscarPorNombre(texto: string) {
+    return this.http.get<E[]>(this.miUrl + 'search/' + texto
+    ).pipe(catchError(this.handleError));
+  }
 }
