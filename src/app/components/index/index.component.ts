@@ -34,7 +34,7 @@ export class IndexComponent implements OnInit {
       this.empresas = res;
     },
     err => {
-      alert ('Error al traer todas las empresas: ' + err);
+      alert('Ocurrió un error al cargar las Empresas: ' + err);
     });
   }
 }

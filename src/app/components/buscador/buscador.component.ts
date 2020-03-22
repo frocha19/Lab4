@@ -24,11 +24,23 @@ export class BuscadorComponent implements OnInit {
   }
   getNoticias() {
     this.noticias = null;
-    this.noticiaService.buscarPorNombre(this.textoBuscado).subscribe((dato) => {
+    this.noticiaService.buscarPorNombre(this.textoBuscado).subscribe(dato => {
       dato.forEach(n => {
         n.resumen_de_la_noticia = n.resumen_de_la_noticia.substring(0, 40).concat('...');
       });
+      dato.sort((a, b) => {
+        if (a.fecha_publicacion < b.fecha_publicacion) {
+          return 1;
+        }
+        if (a.fecha_publicacion > b.fecha_publicacion) {
+          return -1;
+        }
+        return 0;
+      });
       this.noticias = dato;
+    },
+    err => {
+      alert('Ocurrió un error al cargar las Noticias: ' + err);
     });
   }
 }

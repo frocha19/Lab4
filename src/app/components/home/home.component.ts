@@ -56,8 +56,9 @@ export class HomeComponent implements OnInit {
   getFive(id: number) {
     this.noticiaService.getLast(id).subscribe((data) => {
       this.noticias = data;
-    }, err => {
-      alert('Error al traer los datos de noticia: getFive');
+    },
+    err => {
+      alert('Ocurrió un error al cargar las ultimas 5 Noticias: ' + err);
     });
   }
   goNoticia(id: number) {
@@ -65,7 +66,19 @@ export class HomeComponent implements OnInit {
   }
   getNoticias() {
     this.noticiaService.getAll().subscribe((dato) => {
+      dato.sort((a, b) => {
+        if (a.fecha_publicacion < b.fecha_publicacion) {
+          return 1;
+        }
+        if (a.fecha_publicacion > b.fecha_publicacion) {
+          return -1;
+        }
+        return 0;
+      });
       this.data = dato;
+    },
+    err => {
+      alert('Ocurrió un error al cargar las Noticias: ' + err);
     });
   }
   selectEvent(item) {

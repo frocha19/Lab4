@@ -56,7 +56,13 @@ export class DetalleComponent implements OnInit {
       this.noticia = data;
       this.empresaServicio.getOne(this.noticia.idEmpresa).subscribe((dato) => {
         this.empresa = dato;
+      },
+      err => {
+        alert('Ocurrió un error al cargar la Empresa: ' + err);
       });
+    },
+    err => {
+      alert('Ocurrió un error al cargar la Noticia: ' + err);
     });
   }
   goNoticia(id: number) {
@@ -65,7 +71,9 @@ export class DetalleComponent implements OnInit {
   getNoticias() {
     this.noticiaServicio.getAll().subscribe((dato) => {
       this.data = dato;
-      console.log(this.data);
+    },
+    err => {
+      alert('Ocurrió un error al cargar las Noticias: ' + err);
     });
   }
   selectEvent(item) {

@@ -16,10 +16,11 @@ import { ElementonoticiaComponent } from './components/elementonoticia/elementon
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { ElementohomeComponent } from './components/elementohome/elementohome.component';
 import { ElementodetalleComponent } from './components/elementodetalle/elementodetalle.component';
-import { Page404Component } from './components/page404/page404.component';
+import { Page404Component } from './components/modalempresa/page404/page404.component';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { BuscadorComponent } from './components/buscador/buscador.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     BrowserAnimationsModule,
     EditorModule,
     AutocompleteLibModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatFormFieldModule
   ],
   providers: [EmpresaService],
   bootstrap: [AppComponent]

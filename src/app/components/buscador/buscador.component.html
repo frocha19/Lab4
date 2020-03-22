@@ -1,17 +1,15 @@
 <div class="container">
-    <div align="center">
+    <div>
         <h1>Buscador de Noticias</h1>
         <div class="row">
             <div class="col">
                 <div class="form-group">
-                    <input type="text" placeholder="Search..." class="form-control" name="textoBuscado" [(ngModel)]="this.textoBuscado">
-                    <button class="btn btn-primary" type="submit" (click)="getNoticias()">Buscar</button>
+                    <input min="2" minlength="2" type="text" placeholder="Search..." class="form-control" name="textoBuscado" [(ngModel)]="textoBuscado">
+                    <button *ngIf="textoBuscado.length >= 1" class="btn btn-primary" type="submit" (click)="getNoticias()">Buscar</button>
                 </div>
             </div>
         </div>
     </div>
-    <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
-    </mat-paginator>
     <div class="row">
         <div class="col">
             <table class="table table-info">
@@ -23,7 +21,6 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let noticia of noticias">
-                        <!--tr *ngFor="let post of posts | filter:filterPost"></tr-->
                         <td><img class="ml-5" width="200px" height="100px" src="{{noticia.imagen_noticia}}" alt="Imagen de la Noticia" (click)="goNoticia(noticia.id)"></td>
                         <td>{{noticia.titulo_de_la_noticia}}
                             <br> {{noticia.resumen_de_la_noticia}}
