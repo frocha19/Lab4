@@ -1,4 +1,3 @@
-import { MaterialModule } from './core/material.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -25,6 +24,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { AgmCoreModule } from '@agm/core';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MatTableModule } from '@angular/material/table';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -52,10 +52,10 @@ import { MatTableModule } from '@angular/material/table';
     BrowserAnimationsModule,
     EditorModule,
     AutocompleteLibModule,
-    MaterialModule,
     MatPaginatorModule,
     MatFormFieldModule,
     MatTableModule,
+    NgxPaginationModule,
 
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAvcDy5ZYc2ujCS6TTtI3RYX5QmuoV8Ffw'

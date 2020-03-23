@@ -2,10 +2,7 @@ import { EmpresaService } from './../../services/empresa.service';
 import { Router } from '@angular/router';
 import { NoticiaService } from '../../services/noticia.service';
 import { Noticia } from './../../model/noticia';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
-
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-tablanoticia',
@@ -14,9 +11,8 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class TablanoticiaComponent implements OnInit {
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  public dataSource: MatTableDataSource<Noticia> = new MatTableDataSource();
-
+  pageActual: number = 1;
+  
   public noticias: Noticia[];
   public noticia: Noticia = {
     id: 0,
@@ -33,11 +29,6 @@ export class TablanoticiaComponent implements OnInit {
 
   ngOnInit() {
     this.getAllNoticias();
-  }
-
-  notifyTable() {
-    this.dataSource.data = [...this.dataSource.data];
-    this.dataSource.paginator = this.paginator;
   }
 
   getAllNoticias() {

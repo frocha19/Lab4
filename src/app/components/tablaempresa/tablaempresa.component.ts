@@ -1,8 +1,6 @@
 import { EmpresaService } from '../../services/empresa.service';
 import { Empresa } from './../../model/empresa';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-tablaempresa',
@@ -12,9 +10,7 @@ import { MatTableDataSource } from '@angular/material/table';
 
 export class TablaempresaComponent implements OnInit {
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  public dataSource: MatTableDataSource<Empresa> = new MatTableDataSource();
-
+  pageActual: number = 1;
   public empresas: Empresa[];
   indice: number;
 
@@ -34,11 +30,6 @@ export class TablaempresaComponent implements OnInit {
 
   ngOnInit() {
     this.getAllEmpresas();
-  }
-
-  notifyTable() {
-    this.dataSource.data = [...this.dataSource.data];
-    this.dataSource.paginator = this.paginator;
   }
 
   getAllEmpresas() {

@@ -1,4 +1,4 @@
-<section class="secti">
+<section class="section">
   <div class="divi">
     <div class="row">
       <div class="col-xs-12 col-sm-8 col-md-10">
@@ -25,7 +25,7 @@
             </tr>
           </thead>
           <tbody align="center">
-            <tr *ngFor="let i of noticias">
+            <tr *ngFor="let i of noticias | paginate: { itemsPerPage: 6, currentPage: pageActual }">
               <th scope="row">{{i.id}}</th>
               <td>{{i.titulo_de_la_noticia}}</td>
               <td hidden>{{i.resumen_de_la_noticia}}</td>
@@ -42,7 +42,7 @@
             </tr>
           </tbody>
         </table>
-        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
       </div>
     </div>
   </div>
