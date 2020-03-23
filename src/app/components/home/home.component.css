@@ -4,6 +4,8 @@
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     box-shadow: -8px 9px 10px -1px rgba(1, 55, 77, 1);
+    margin-left: 4rem;
+    margin-right: 4rem;
 }
 
 .avatar {
