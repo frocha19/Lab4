@@ -20,10 +20,21 @@ export class HomeComponent implements OnInit {
     this.actRoute.params.subscribe(data => {
       if (data['id']) {
         this.getOne(data['id']);
+        this.getFive(data['id']);
       }
     });
   }
 
+  public noticias1: Noticia = {
+    id: 0,
+    titulo_de_la_noticia: '',
+    resumen_de_la_noticia: '',
+    imagen_noticia: '',
+    contenido_html: '',
+    publicada: '',
+    fecha_publicacion: null,
+    idEmpresa: null
+  };
   public noticias: Noticia[];
   public empresa: Empresa = {
     id: 0,
@@ -55,6 +66,7 @@ export class HomeComponent implements OnInit {
   }
   getFive(id: number) {
     this.noticiaService.getLast(id).subscribe((data) => {
+      this.noticias1 = data.shift();
       this.noticias = data;
     },
     err => {

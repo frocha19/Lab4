@@ -27,3 +27,11 @@
     margin: 0 auto;
     margin-top: 1em;
 }
+
+.select {
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 20px;
+    border: solid;
+    border-color: white;
+}
