@@ -1,3 +1,4 @@
+import { MaterialModule } from './core/material.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +23,9 @@ import { BuscadorComponent } from './components/buscador/buscador.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AgmCoreModule } from '@agm/core';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { MatTableModule } from '@angular/material/table';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +40,8 @@ import { AgmCoreModule } from '@agm/core';
     ElementohomeComponent,
     ElementodetalleComponent,
     Page404Component,
-    BuscadorComponent
+    BuscadorComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -47,8 +52,11 @@ import { AgmCoreModule } from '@agm/core';
     BrowserAnimationsModule,
     EditorModule,
     AutocompleteLibModule,
+    MaterialModule,
     MatPaginatorModule,
     MatFormFieldModule,
+    MatTableModule,
+
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAvcDy5ZYc2ujCS6TTtI3RYX5QmuoV8Ffw'
     })
