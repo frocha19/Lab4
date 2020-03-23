@@ -13,15 +13,10 @@
     <div class="row">
         <div class="col">
             <table class="table table-info">
-                <thead>
-                    <tr>
-                        <th>Texto Buscado: {{this.textoBuscado}}</th>
-                        <th>                                                                          </th>
-                    </tr>
-                </thead>
+                Texto Buscado: {{this.textoBuscado}}
                 <tbody>
                     <tr *ngFor="let noticia of noticias">
-                        <td><img class="ml-5" width="200px" height="100px" src="{{noticia.imagen_noticia}}" alt="Imagen de la Noticia" (click)="goNoticia(noticia.id)"></td>
+                        <td><img width="200px" height="100px" src="{{noticia.imagen_noticia}}" alt="Imagen de la Noticia" (click)="goNoticia(noticia.id)"></td>
                         <td>{{noticia.titulo_de_la_noticia}}
                             <br> {{noticia.resumen_de_la_noticia}}
                             <br> {{noticia.fecha_publicacion}}
