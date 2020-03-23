@@ -26,8 +26,6 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  public lat = 51.678418;
-  public lng = 7.809007;
   public noticias1: Noticia = {
     id: 0,
     titulo_de_la_noticia: '',
