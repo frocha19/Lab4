@@ -4,6 +4,7 @@ import { EmpresaService } from '../../services/empresa.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NoticiaService } from '../../services/noticia.service';
 import { Noticia } from '../../model/noticia';
+import { AgmMap } from '@agm/core';
 
 @Component({
   selector: 'app-home',
@@ -25,6 +26,8 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  public lat = 51.678418;
+  public lng = 7.809007;
   public noticias1: Noticia = {
     id: 0,
     titulo_de_la_noticia: '',

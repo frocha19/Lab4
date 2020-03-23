@@ -86,8 +86,9 @@
 </div>
 <section class="ml-5 mr-5">
     <div align="center">
-        <!--Aqui debe ir el mapa-->
-
+        <agm-map [latitude]="lat" [longitude]="lng">
+            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        </agm-map>
     </div>
     <address>
             <dl>

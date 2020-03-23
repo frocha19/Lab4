@@ -21,7 +21,7 @@ import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { BuscadorComponent } from './components/buscador/buscador.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
+import { AgmCoreModule } from '@agm/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +48,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     EditorModule,
     AutocompleteLibModule,
     MatPaginatorModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAvcDy5ZYc2ujCS6TTtI3RYX5QmuoV8Ffw'
+    })
+    // 'AIzaSyAvcDy5ZYc2ujCS6TTtI3RYX5QmuoV8Ffw'
+    // 'AIzaSyCYZlfwf32f8iqEveyFdeVLtkHBMxK9518'
   ],
   providers: [EmpresaService],
   bootstrap: [AppComponent]

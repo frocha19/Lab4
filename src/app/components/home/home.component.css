@@ -35,3 +35,7 @@
     border: solid;
     border-color: white;
 }
+
+.agm-map {
+    height: 300px;
+}
