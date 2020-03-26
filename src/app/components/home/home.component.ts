@@ -1,11 +1,9 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Empresa } from '../../model/empresa';
 import { EmpresaService } from '../../services/empresa.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NoticiaService } from '../../services/noticia.service';
 import { Noticia } from '../../model/noticia';
-import { AgmMap } from '@agm/core';
 
 @Component({
   selector: 'app-home',
@@ -17,8 +15,7 @@ export class HomeComponent implements OnInit {
     private route: Router,
     private noticiaService: NoticiaService,
     private empresaService: EmpresaService,
-    private actRoute: ActivatedRoute,
-    private http: HttpClient
+    private actRoute: ActivatedRoute
   ) {
     this.actRoute.params.subscribe(data => {
       if (data['id']) {
@@ -37,7 +34,17 @@ export class HomeComponent implements OnInit {
     contenido_html: '',
     publicada: '',
     fecha_publicacion: null,
-    idEmpresa: null
+    idEmpresa: {
+      id: 0,
+      denominacion: '',
+      telefono: '',
+      horario_de_atencion: '',
+      quienes_somos: '',
+      latitud: 0,
+      longitud: 0,
+      domicilio: '',
+      email: '',
+    }
   };
   public noticias: Noticia[];
   public empresa: Empresa = {
@@ -73,28 +80,15 @@ export class HomeComponent implements OnInit {
       this.noticias1 = data.shift();
       this.noticias = data;
     },
-    err => {
-      alert('Ocurrió un error al cargar las ultimas 5 Noticias: ' + err);
-    });
+      err => {
+        alert('Ocurrió un error al cargar las ultimas 5 Noticias: ' + err);
+      });
   }
   goNoticia(id: number) {
     this.route.navigate(['/detalle/' + id]);
   }
   getNoticias() {
     this.noticiaService.getAll().subscribe((dato) => {
-      let direction;
-      this.http.get(this._urlRecoverImage).subscribe((res)=>{
-        console.log(res);
-        direction = res;
-        for (let i = 0; i < dato.length; i++) {
-          dato[i].imagen_noticia = direction + dato[i].id +".jpg";
-          console.log(dato[i].imagen_noticia);
-        }
-        console.log(direction)
-      }, (error)=>{
-        console.log(error);
-      });
-      
       dato.sort((a, b) => {
         if (a.fecha_publicacion < b.fecha_publicacion) {
           return 1;
@@ -106,9 +100,9 @@ export class HomeComponent implements OnInit {
       });
       this.data = dato;
     },
-    err => {
-      alert('Ocurrió un error al cargar las Noticias: ' + err);
-    });
+      err => {
+        alert('Ocurrió un error al cargar las Noticias: ' + err);
+      });
   }
   selectEvent(item) {
     this.goNoticia(item.id);

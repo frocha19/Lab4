@@ -20,7 +20,17 @@ export class DetalleComponent implements OnInit {
     contenido_html: '',
     publicada: '',
     fecha_publicacion: null,
-    idEmpresa: null
+    idEmpresa : { 
+      id: 0,
+      denominacion: '',
+      telefono: '',
+      horario_de_atencion: '',
+      quienes_somos: '',
+      latitud: 0,
+      longitud: 0,
+      domicilio: '',
+      email: '',
+    } 
   };
   public empresa: Empresa = {
     id: 0,
@@ -51,10 +61,10 @@ export class DetalleComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getOne(id: number) {
-    this.noticiaServicio.getOne(id).subscribe((data) => {
+  getOne(idEmpresa: any) {
+    this.noticiaServicio.getOne(idEmpresa).subscribe((data) => {
       this.noticia = data;
-      this.empresaServicio.getOne(this.noticia.idEmpresa).subscribe((dato) => {
+      this.empresaServicio.getOne(this.noticia.idEmpresa.id).subscribe((dato) => {
         this.empresa = dato;
       },
       err => {

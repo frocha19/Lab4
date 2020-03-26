@@ -25,6 +25,9 @@ import { AgmCoreModule } from '@agm/core';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MatTableModule } from '@angular/material/table';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { environment } from 'src/environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -56,6 +59,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     MatFormFieldModule,
     MatTableModule,
     NgxPaginationModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule,
 
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAvcDy5ZYc2ujCS6TTtI3RYX5QmuoV8Ffw'

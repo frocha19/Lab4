@@ -6,7 +6,8 @@ import { NoticiaService } from './../../services/noticia.service';
 import { Component, OnInit } from '@angular/core';
 import { Noticia } from 'src/app/model/noticia';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-elementonoticia',
@@ -16,10 +17,9 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 export class ElementonoticiaComponent implements OnInit {
 
   public empresas: Empresa[];
-  _url = 'http://localhost:9000/api/v1/noticia/upload';
-  _urlmaxid = 'http://localhost:9000/api/v1/noticia/maxid';
-  _urlRecoverImage = 'http://localhost:9000/api/v1/noticia/recoverUpload';
-  uploadForm: FormGroup;
+  uploadPercent: Observable<number>;
+  urlImage: Observable<string>;
+  noticias: Noticia[];
 
   noticia: Noticia = {
     id: 0,
@@ -29,12 +29,22 @@ export class ElementonoticiaComponent implements OnInit {
     contenido_html: '',
     publicada: '',
     fecha_publicacion: null,
-    idEmpresa: null
+    idEmpresa: {
+      id: 0,
+      denominacion: '',
+      telefono: '',
+      horario_de_atencion: '',
+      quienes_somos: '',
+      latitud: 0,
+      longitud: 0,
+      domicilio: '',
+      email: '',
+    }
   };
 
   constructor(private noticiaService: NoticiaService, private router: Router,
     private actRoute: ActivatedRoute, private empresaService: EmpresaService,
-    private formBuilder: FormBuilder, private http: HttpClient) {
+    private http: HttpClient, private storage: AngularFireStorage) {
     this.actRoute.params.subscribe((data) => {
       if (data['id'] !== 'nueva') {
         this.getOne(data['id']);
@@ -44,9 +54,6 @@ export class ElementonoticiaComponent implements OnInit {
 
   ngOnInit() {
     this.getAllEmpresas();
-    this.uploadForm = this.formBuilder.group({
-      file: ['']
-    });
   }
 
   save() {
@@ -60,35 +67,15 @@ export class ElementonoticiaComponent implements OnInit {
   }
 
   add() {
-    let maxID = this.http.get(this._urlmaxid).subscribe((res)=>{
-      console.log("res",res);
-      /*if(res === ""){
-        this.noticia.imagen_noticia = this._urlRecoverImage + "1" + ".jpg";
-      }else{
-        this.noticia.imagen_noticia = this._urlRecoverImage + res + ".jpg";
-      }*/
-    })
+    this.noticia.imagen_noticia = this.aux;
     this.noticiaService.post(this.noticia).subscribe(
-      res => {
-        const formData = new FormData();
-        formData.append('file', this.uploadForm.get('file').value, res.id.toString()+".jpg");
-        this.http.post<any>(this._url, formData).subscribe( res => {
-          console.log(res);
-        },
-          err => console.log(err)
-        );
-        this.http.get(this._urlRecoverImage).subscribe((res)=>{
-          console.log(res);
-        }, (error)=>{
-          console.log(error);
-        });
+      data => {
         alert('Noticia agregada correctamente');
         this.router.navigate(['tabla/noticia']);
       },
       err => {
-        alert('Ocurrió un error al agregar la noticia. Verifique los campos.');
-      }
-    );
+        alert('Error al agregar noticia: ' + err);
+      });
   }
 
   update(id: number) {
@@ -120,20 +107,32 @@ export class ElementonoticiaComponent implements OnInit {
       });
   }
 
-  onFileSelect(event) {
-    if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.uploadForm.get('file').setValue(file);
-    }
-  }
+  public aux: string = '';
+  public flag: boolean = false;
 
-  /*onSubmit() {
-    const formData = new FormData();
-    formData.append('file', this.uploadForm.get('file').value);
-    this.http.post<any>(this._url, formData).subscribe(
-      res => console.log(res),
-      err => console.log(err)
-    );
-  }*/
+  onUpload(e) {
+    this.noticiaService.getMaxID().subscribe(res => {
+      const idImagenNoticia = +res + 1;
+      const file = e.target.files[0];
+      const filePath = `${idImagenNoticia}`;
+      const ref = this.storage.ref(filePath);
+      const task = this.storage.upload(filePath, file);
+      this.uploadPercent = task.percentageChanges();
+      task.snapshotChanges()
+        .pipe(
+          finalize(() => {
+            ref.getDownloadURL().subscribe(data => {
+              this.urlImage = data;
+              console.log('url image', data);
+              this.aux = data;
+              this.flag = true;
+            });
+          })
+        ).subscribe();
+    },
+      err => {
+        alert('Error al obtener el maximo id de la tabla noticias: ' + err);
+      });
+  }
 
 }

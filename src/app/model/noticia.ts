@@ -1,3 +1,4 @@
+import { Empresa } from './empresa';
 export class Noticia {
     id?: number;
     titulo_de_la_noticia: string;
@@ -6,5 +7,15 @@ export class Noticia {
     contenido_html: string;
     publicada: string;
     fecha_publicacion: Date;
-    idEmpresa: number;
+    idEmpresa : Empresa = {
+        id: 0,
+        denominacion: '',
+        telefono: '',
+        horario_de_atencion: '',
+        quienes_somos: '',
+        latitud: 0,
+        longitud: 0,
+        domicilio: '',
+        email: ''
+    }
 }
