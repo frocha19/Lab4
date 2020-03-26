@@ -79,6 +79,7 @@ export class ElementonoticiaComponent implements OnInit {
   }
 
   update(id: number) {
+    this.noticia.imagen_noticia = this.aux;
     this.noticiaService.put(id, this.noticia).subscribe(
       res => {
         alert('La noticia fue actualizada con éxito');
